@@ -113,12 +113,7 @@ export default function AuthForm() {
               </Button> */}
               </>
             ) : (
-              <ThreeDots
-                height="50"
-                width="50"
-                color="#2874FC"
-                visible={true}
-              />
+           null
             )}
           </ButtonWrapper>
         </EntryForm>
