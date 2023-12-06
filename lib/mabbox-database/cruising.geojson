@@ -1,0 +1,60 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Volkspark Hasenheide",
+        "description": "Cruising"
+      },
+      "geometry": {
+        "coordinates": [13.4145337, 52.4842015],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tiergarten",
+        "description": "Cruising"
+      },
+      "geometry": {
+        "coordinates": [13.3365643, 52.5107805],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Volkspark Friedrichshain",
+        "description": "Cruising"
+      },
+      "geometry": {
+        "coordinates": [13.4341994, 52.5280353],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Grunewald",
+        "description": "Cruising"
+      },
+      "geometry": {
+        "coordinates": [13.2035949, 52.4858443],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Ernst-Thälmann park",
+        "description": "Cruising"
+      },
+      "geometry": {
+        "coordinates": [13.4312424, 52.5386387],
+        "type": "Point"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}

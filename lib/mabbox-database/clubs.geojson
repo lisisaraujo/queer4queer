@@ -1,0 +1,126 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Berghain",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4408058, 52.5110723],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "About_blank",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4641796, 52.5025336],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "SchwuZ",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4315742, 52.4794165],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Lab.Oratory",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4409219, 52.5116122],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "SO36",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4199078, 52.5003921],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Watergate",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4430581, 52.5010558],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Sisyphos",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4890505, 52.4929592],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Golden Gate",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4055363, 52.5129892],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Club Triebwerk",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.4164536, 52.4892443],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Revier Südost",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.503286, 52.45989],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "TRAUMA BAR UND KINO",
+        "description": "Club"
+      },
+      "geometry": {
+        "coordinates": [13.362311, 52.5306511],
+        "type": "Point"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}

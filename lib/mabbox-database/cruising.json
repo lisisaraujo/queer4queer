@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Volkspark Hasenheide (cruising)",
+    "location": { "lat": 52.4842015, "lng": 13.4145337 }
+  },
+  {
+    "name": "Tiergarten (cruising)",
+    "location": { "lat": 52.5107805, "lng": 13.3365643 }
+  },
+  {
+    "name": "Volkspark Friedrichshain (cruising)",
+    "location": { "lat": 52.5280353, "lng": 13.4341994 }
+  },
+  {
+    "name": "Grunewald (cruising)",
+    "location": { "lat": 52.4858443, "lng": 13.2035949 }
+  },
+  {
+    "name": "Ernst-Thälmann park (cruising)",
+    "location": { "lat": 52.5386387, "lng": 13.4312424 },
+    "comments":
+  }
+]

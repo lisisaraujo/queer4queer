@@ -1,0 +1,269 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tipsy Bear",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4084972, 52.540937],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "SilverFuture",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4280239, 52.4880615],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Südblock",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4129215, 52.4987318],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Roses",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4171672, 52.5005109],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Möbel Olfe",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.415262, 52.499985],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bar Zum schmutzigen Hobby",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.451315, 52.507921],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Monster Ronsons's Ichiban Karaoke",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4462772, 52.5052743],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "FICKEN 3000",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4181037, 52.4886085],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Café-Bar Himmelreich",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.3523611, 52.4885878],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Paloma Bar",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4167934, 52.4993178],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Betty F***",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4030642, 52.5276026],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Capture Bar",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.45481, 52.5098104],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Greifbar",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4151626, 52.5496812],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "New Action (only men)",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.347258, 52.5001681],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "WOOF Bar (only men)",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.3415847, 52.4992382],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "TOM'S Bar (only men)",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.3493819, 52.4980435],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "To Be Free",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.1970187, 52.5331259],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "BarbieBar",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.3845674, 52.4894692],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Besenkammer",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4101261, 52.5206225],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "OYA",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4210326, 52.5009211],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Große Freiheit",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4539248, 52.513483],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Cafe Cralle",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.3610829, 52.550633],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "kwia",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4236778, 52.4940408],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Kfetisch",
+        "description": "Bar"
+      },
+      "geometry": {
+        "coordinates": [13.4395609, 52.483106],
+        "type": "Point"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Berghain",
+    "location": { "lat": 52.51111100000003, "lng": 13.443056000000015 }
+  },
+  {
+    "name": "About_blank",
+    "location": { "lat": 52.5025336, "lng": 13.4641796 }
+  },
+  {
+    "name": "SchwuZ",
+    "location": { "lat": 52.4794165, "lng": 13.4315742 }
+  },
+  {
+    "name": "Lab.Oratory",
+    "location": { "lat": 52.5116122, "lng": 13.4409219 }
+  },
+  {
+    "name": "SO36",
+    "location": { "lat": 52.5003921, "lng": 13.4199078 }
+  },
+  {
+    "name": "Watergate",
+    "location": { "lat": 52.5010558, "lng": 13.4430581 }
+  },
+  {
+    "name": "Sisyphos",
+    "location": { "lat": 52.4929592, "lng": 13.4890505 }
+  },
+  {
+    "name": "Golden Gate",
+    "location": { "lat": 52.5129892, "lng": 13.4055363 }
+  },
+  {
+    "name": "Club Triebwerk",
+    "location": { "lat": 52.4892443, "lng": 13.4164536 }
+  },
+  {
+    "name": "Revier Südost",
+    "location": { "lat": 52.45989, "lng": 13.503286 }
+  },
+  {
+    "name": "TRAUMA BAR UND KINO",
+    "location": { "lat": 52.5306511, "lng": 13.362311 }
+  }
+]

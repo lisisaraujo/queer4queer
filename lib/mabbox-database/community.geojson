@@ -1,0 +1,16 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Oyoun",
+        "description": "Community Center"
+      },
+      "geometry": {
+        "coordinates": [13.4206611, 52.4838959],
+        "type": "Point"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}
