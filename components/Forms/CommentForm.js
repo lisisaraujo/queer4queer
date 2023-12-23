@@ -20,7 +20,11 @@ export default function CommentForm({
   selectedsexualOrientationOption,
   selectedGenderOptions,
   selectedBipocOption,
-}) {
+
+}) 
+
+{
+
   return (
     <div>
       <EntryForm onSubmit={desiredApplyFunction} id="comment-form">
@@ -59,7 +63,7 @@ export default function CommentForm({
                 blurInputOnSelect={false}
                 defaultValue={selectedsexualOrientationOption}
                 onChange={(selectedOptions) =>
-                  setSelectedsexualOrientationOption([...selectedOptions])
+                  setSelectedsexualOrientationOption([...selectedsexualOrientationOption, selectedOptions])
                 }
                 options={sexualOrientationCategories}
                 name="sexual_orientation"

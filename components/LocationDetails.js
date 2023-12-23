@@ -30,11 +30,6 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
   const [selectedsexualOrientationOption, setSelectedsexualOrientationOption] =
     useState([]);
   const [selectedBipocOption, setSelectedBipocOption] = useState([]);
-  // const [
-  //   sexualOrientationDemographicOptions,
-  //   setSexualOrientationDemographicOptions,
-  // ] = useState([]);
-  // const [genderDemographicOptions, setGenderDemographicOptions] = useState([]);
 
   function loadComments() {
     const fetchData = async () => {
@@ -69,52 +64,53 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
     setSelectedBipocOption([]);
   };
 
-  // const demographicDataOptions = () => {
-  //   if (sexualOrientationDemographicOptions) {
-  //     setSexualOrientationDemographicOptions([
-  //       ...sexualOrientationDemographicOptions,
-  //     ]);
-  //     setSelectedsexualOrientationOption(sexualOrientationDemographicOptions);
-  //   }
-
-  //   if (genderDemographicOptions) {
-  //     setGenderDemographicOptions([...genderDemographicOptions]);
-  //     setSelectedGenderOptions(genderDemographicOptions);
-  //   }
-  // };
 
   const getFilteredList = () => {
     let filtered = [...filteredComments];
 
-    // if (selectedAgeOption) {
-    //   filtered = filtered.filter(
-    //     (comment) => comment.age === [selectedAgeOption.value]
-    //   );
-    // }
 
     if (selectedAgeOptions.length > 0) {
       filtered = filtered.filter((comment) =>
         selectedAgeOptions.some((option) => option.value === comment.age)
       );
     }
+    console.log("Selected AGE Options: ", selectedAgeOptions)
+
+    // if (selectedGenderOptions.length > 0) {
+    //   filtered = filtered.filter((comment) =>
+    //     selectedGenderOptions.some((option) => option.value === comment.gender)
+    //   );
+    // }
+
+    // console.log("Selected Gender Options: ", selectedGenderOptions)
 
 
-    if (selectedGenderOptions.length > 0) {
-      filtered = filtered.filter((comment) =>
-        selectedGenderOptions.some((option) => option.value === comment.gender)
-      );
-    }
+    // if (selectedsexualOrientationOption.length > 0) {
+    //   filtered = filtered.filter((comment) =>
+    //     selectedsexualOrientationOption.some(
+    //       (option) => option.value === comment.sexual_orientation
+    //     )
+    //   );
+    // }
 
-    console.log("Selected Gender Options: ", selectedGenderOptions)
+    // Example for gender filtering with array options
+if (selectedGenderOptions.length > 0) {
+  filtered = filtered.filter((comment) =>
+    selectedGenderOptions.some((option) =>
+      comment.gender.includes(option.value)
+    )
+  );
+}
 
-    
-    if (selectedsexualOrientationOption.length > 0) {
-      filtered = filtered.filter((comment) =>
-        selectedsexualOrientationOption.some(
-          (option) => option.value === comment.sexual_orientation
-        )
-      );
-    }
+// Example for sexual orientation filtering with array options
+if (selectedsexualOrientationOption.length > 0) {
+  filtered = filtered.filter((comment) =>
+    selectedsexualOrientationOption.some((option) =>
+      comment.sexual_orientation.includes(option.value)
+    )
+  );
+}
+
     if (selectedBipocOption.length > 0) {
       filtered = filtered.filter((comment) =>
         selectedBipocOption.some((option) => option.value === comment.bipoc)

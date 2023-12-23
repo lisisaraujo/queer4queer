@@ -6,22 +6,7 @@ import { IoFilter } from "react-icons/io5";
 import styled from "styled-components";
 import CustomModal from "./CustomModal";
 import CategoryCheckboxFilter from "../Filters/CategoryCheckboxFilter";
-const customModalStyles = {
-  content: {
-    top: "55%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    padding: "0px",
-    background: "rgba(77, 150, 239, 0.8)",
-    borderRadius: "10px",
-    width: "80%",
-    height: "80%",
-    boxShadow: "0 1px 2px rgba(0,0,0,.1)",
-  },
-};
+
 const closeButtonStyle = {
   color: "whitesmoke",
   backgroundColor: "transparent",
@@ -106,7 +91,7 @@ export default function ModalCommentFilter({
           selectedAgeOptions={selectedAgeOptions}
           selectedGenderOptions={selectedGenderOptions}
           selectedBipocOption={selectedBipocOption}
-          handleApplyFilter={handleApplyFilter}
+          desiredApplyFunction={handleApplyFilter}
         />
       </CustomModal>
     </div>
