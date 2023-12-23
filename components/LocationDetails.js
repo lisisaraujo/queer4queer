@@ -255,19 +255,16 @@ export const getServerSideProps = async (context) => {
 };
 
 const StyledBackground = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  
   background: url(${(props) => props.backgroundImageUrl}),
     lightgray 50% / cover no-repeat;
 `;
 
+
 const StyledLocationContainer = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   color: #101828;
@@ -294,10 +291,8 @@ const StyledLocationContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* margin-left: 5%; */
     width: 25%;
   }
-
   .delete-location {
     display: flex;
     flex-direction: column;
@@ -307,13 +302,15 @@ const StyledLocationContainer = styled.div`
   }
 `;
 
+
 const BlurredContentWrapper = styled.div`
+width: 100vw;
+height: 100%;
   background-color: rgba(252, 252, 253, 0.9);
   padding: 20px;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+  overflow: auto; 
 `;
+
 const CommentsContainer = styled.div`
   margin-bottom: 5vh;
   flex-grow: 1;
