@@ -256,7 +256,7 @@ export const getServerSideProps = async (context) => {
 
 const StyledBackground = styled.div`
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   
   background: url(${(props) => props.backgroundImageUrl}),
     lightgray 50% / cover no-repeat;
@@ -305,7 +305,7 @@ const StyledLocationContainer = styled.div`
 
 const BlurredContentWrapper = styled.div`
 width: 100vw;
-height: 100%;
+height: 100vh;
   background-color: rgba(252, 252, 253, 0.9);
   padding: 20px;
   overflow: auto; 
