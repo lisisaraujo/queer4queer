@@ -15,24 +15,24 @@ export default function CommentCard({
 }) {
   const { data: session } = useSession();
 
+  const filterNonEmptyValues = (arr) => arr.filter(Boolean);
+
+
   return (
     <>
       <CardFrame>
         <div className="demographic-data">
           {name && <p>commented by: {name} </p>}
           {age && <span className="demographic-data-tag">#{age}</span>}
-          {sexual_orientation &&
-            sexual_orientation.map((tag) => (
-              <span key={tag} className="demographic-data-tag">
-                #{tag}{" "}
-              </span>
-            ))}
-          {gender &&
-            gender.map((tag) => (
-              <span key={tag} className="demographic-data-tag">
-                #{tag}{" "}
-              </span>
-            ))}
+
+{filterNonEmptyValues(sexual_orientation).map((tag) => (
+      <span key={tag} className="demographic-data-tag">#{tag} </span>
+    ))}
+
+    {filterNonEmptyValues(gender).map((tag) => (
+      <span key={tag} className="demographic-data-tag">#{tag} </span>
+    ))}
+
           {bipoc && (
             <span className="demographic-data-tag">
               {bipoc === "Yes" ? "#BIPoC " : null}
