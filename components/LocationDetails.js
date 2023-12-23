@@ -30,11 +30,11 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
   const [selectedsexualOrientationOption, setSelectedsexualOrientationOption] =
     useState([]);
   const [selectedBipocOption, setSelectedBipocOption] = useState([]);
-  const [
-    sexualOrientationDemographicOptions,
-    setSexualOrientationDemographicOptions,
-  ] = useState([]);
-  const [genderDemographicOptions, setGenderDemographicOptions] = useState([]);
+  // const [
+  //   sexualOrientationDemographicOptions,
+  //   setSexualOrientationDemographicOptions,
+  // ] = useState([]);
+  // const [genderDemographicOptions, setGenderDemographicOptions] = useState([]);
 
   function loadComments() {
     const fetchData = async () => {
@@ -98,11 +98,16 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
       );
     }
 
+
     if (selectedGenderOptions.length > 0) {
       filtered = filtered.filter((comment) =>
         selectedGenderOptions.some((option) => option.value === comment.gender)
       );
     }
+
+    console.log("Selected Gender Options: ", selectedGenderOptions)
+
+    
     if (selectedsexualOrientationOption.length > 0) {
       filtered = filtered.filter((comment) =>
         selectedsexualOrientationOption.some(

@@ -11,7 +11,7 @@ import {
 
 export default function CommentForm({
   locationID,
-  handleSubmit,
+  desiredApplyFunction,
   selectedAgeOptions,
   setSelectedAgeOptions,
   setSelectedGenderOptions,
@@ -23,7 +23,7 @@ export default function CommentForm({
 }) {
   return (
     <div>
-      <EntryForm onSubmit={handleSubmit} id="comment-form">
+      <EntryForm onSubmit={desiredApplyFunction} id="comment-form">
         <input type="hidden" name="location" value={locationID}></input>
         <div className="comment-card">
           <label>

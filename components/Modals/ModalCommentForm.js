@@ -44,6 +44,7 @@ export default function ModalCommentForm({
   selectedAgeOptions,
   selectedGenderOptions,
   selectedBipocOption,
+  desiredApplyFunction
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -122,7 +123,7 @@ export default function ModalCommentForm({
         title="Share experience"
         applyText="Submit"
         cancelText="Cancel"
-        handleSubmit={handleSubmitComment}
+        desiredApplyFunction={handleSubmitComment}
       >
         <button onClick={closeModal} style={closeButtonStyle}>
           X
@@ -141,6 +142,7 @@ export default function ModalCommentForm({
           selectedAgeOptions={selectedAgeOptions}
           selectedGenderOptions={selectedGenderOptions}
           selectedBipocOption={selectedBipocOption}
+          desiredApplyFunction={handleSubmitComment}
         />
       </CustomModal>
     </div>
