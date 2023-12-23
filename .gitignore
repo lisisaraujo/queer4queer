@@ -32,4 +32,4 @@ yarn-error.log*
 .vercel
 
 # Mapbox keys
-.mapbox.js
+mapbox.js
