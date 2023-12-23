@@ -75,25 +75,7 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
       );
     }
     console.log("Selected AGE Options: ", selectedAgeOptions)
-
-    // if (selectedGenderOptions.length > 0) {
-    //   filtered = filtered.filter((comment) =>
-    //     selectedGenderOptions.some((option) => option.value === comment.gender)
-    //   );
-    // }
-
-    // console.log("Selected Gender Options: ", selectedGenderOptions)
-
-
-    // if (selectedsexualOrientationOption.length > 0) {
-    //   filtered = filtered.filter((comment) =>
-    //     selectedsexualOrientationOption.some(
-    //       (option) => option.value === comment.sexual_orientation
-    //     )
-    //   );
-    // }
-
-    // Example for gender filtering with array options
+ 
 if (selectedGenderOptions.length > 0) {
   filtered = filtered.filter((comment) =>
     selectedGenderOptions.some((option) =>
@@ -102,7 +84,6 @@ if (selectedGenderOptions.length > 0) {
   );
 }
 
-// Example for sexual orientation filtering with array options
 if (selectedsexualOrientationOption.length > 0) {
   filtered = filtered.filter((comment) =>
     selectedsexualOrientationOption.some((option) =>
