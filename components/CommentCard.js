@@ -83,14 +83,15 @@ const CardFrame = styled.div`
 
   .demographic-data {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 10px; 
   }
 
   .demographic-data-tag {
     color: #4d96ef;
     font-weight: bold;
     border-style: none;
-    padding: 0% 2%;
+    padding: 0.5% 2%; 
     color: #4d96ef;
     font-feature-settings: "clig" off, "liga" off;
     font-family: Montserrat;
@@ -98,10 +99,14 @@ const CardFrame = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
+    margin-right: 5px; 
+    margin-bottom: 5px; 
   }
 
   .comment {
     overflow: hidden;
+    word-wrap: break-word; 
+    margin-bottom: 10px; 
   }
 
   .date {

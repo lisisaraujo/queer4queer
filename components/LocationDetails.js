@@ -225,7 +225,7 @@ if (selectedsexualOrientationOption.length > 0) {
                     </div>
                   );
                 })}
-                {/* </CommentsContainer> */}
+        
                 {session ? (
                   <div className="delete-location">
                     <h4>Delete this location</h4>
@@ -309,10 +309,4 @@ height: 100%;
   background-color: rgba(252, 252, 253, 0.9);
   padding: 20px;
   overflow: auto; 
-`;
-
-const CommentsContainer = styled.div`
-  margin-bottom: 5vh;
-  flex-grow: 1;
-  overflow: auto;
 `;
