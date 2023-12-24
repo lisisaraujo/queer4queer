@@ -29,7 +29,9 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
     useState([]);
   const [selectedBipocOption, setSelectedBipocOption] = useState([]);
   const [sortOrder, setSortOrder] = useState("desc");
-
+  const iconStyles = {   color: "#101828", fontSize: "1.8em", cursor: "pointer" };
+  const iconStylesClicked = { color: "#4d96ef", fontSize: "1.8em", cursor: "pointer" };
+;
 
   // load comments function
   async function loadComments() {
@@ -157,8 +159,14 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
                 <div className="title-header">
                   <h3>Comments</h3>
                   <div className="sort-icons">
-                    <FaSortUp onClick={() => setSortOrder("asc")} />
-                  <FaSortDown onClick={() => setSortOrder("desc")} />
+                  <FaSortUp
+                    style={sortOrder === "asc" ? iconStylesClicked : iconStyles}
+                    onClick={() => setSortOrder("asc")}
+                  />
+                  <FaSortDown
+                    style={sortOrder === "desc" ? iconStylesClicked : iconStyles}
+                    onClick={() => setSortOrder("desc")}
+                  />
                   </div>
                  
                   <div className="modal">
