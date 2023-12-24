@@ -112,7 +112,7 @@ export default function ModalCommentForm({
   }
 
   return (
-    <div>
+    <>
       <StyledButton>
         <CgMathPlus style={iconStyles} onClick={openModal} />
       </StyledButton>
@@ -129,6 +129,7 @@ export default function ModalCommentForm({
           X
         </button>
         <CommentForm
+        
           locationID={id}
           closeModal={closeModal}
           loadComments={loadComments}
@@ -145,7 +146,7 @@ export default function ModalCommentForm({
           desiredApplyFunction={handleSubmitComment}
         />
       </CustomModal>
-    </div>
+    </>
   );
 }
 

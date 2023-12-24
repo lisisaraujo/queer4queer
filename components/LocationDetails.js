@@ -9,6 +9,7 @@ import LocationHeaderDetails from "./LocationHeaderDetails";
 import ModalCommentForm from "./Modals/ModalCommentForm";
 import useSWR, { mutate } from "swr";
 import ModalCommentFilter from "./Modals/ModalCommentFilter";
+import { FaSortDown, FaSortUp } from "react-icons/fa";
 
 export default function LocationDetails({ loadLocations, specificLocation }) {
   const [comments, setComments] = useState([]);
@@ -19,34 +20,28 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
     "https://res.cloudinary.com/dvaayrczh/image/upload/v1695840462/backgroundImageMap_wcqxi9.png"; // Replace with the actual URL
 
   const { data: session } = useSession();
-
   const router = useRouter();
   const { id } = router.query;
-  //////////////////////
-
   const [filteredComments, setFilteredComments] = useState([]);
   const [selectedAgeOptions, setSelectedAgeOptions] = useState([]);
   const [selectedGenderOptions, setSelectedGenderOptions] = useState([]);
   const [selectedsexualOrientationOption, setSelectedsexualOrientationOption] =
     useState([]);
   const [selectedBipocOption, setSelectedBipocOption] = useState([]);
+  const [sortOrder, setSortOrder] = useState("desc");
 
-  function loadComments() {
-    const fetchData = async () => {
-      setLoading(true);
+
+  // load comments function
+  async function loadComments() {
+    setLoading(true);
+    try {
       const data = await fetch(`/api/comments/${id}`);
       const commentsData = await data.json();
       setComments(commentsData);
-      console.log("CommentsData", commentsData);
       setLoading(false);
-      if (isLoading) {
-        return <h1>Comments Loading...</h1>;
-      }
-      if (!commentsData) {
-        return <h1>No data</h1>;
-      }
-    };
-    fetchData().catch(console.error);
+    } catch (error) {
+      console.error("Error loading comments:", error);
+    }
   }
 
   useEffect(() => {
@@ -57,6 +52,7 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
     setFilteredComments(comments);
   }, [comments]);
 
+  // clear filters
   const clearFilter = () => {
     setSelectedAgeOptions([]);
     setSelectedGenderOptions([]);
@@ -64,33 +60,31 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
     setSelectedBipocOption([]);
   };
 
-
+  // get filtered list of comments
   const getFilteredList = () => {
     let filtered = [...filteredComments];
-
 
     if (selectedAgeOptions.length > 0) {
       filtered = filtered.filter((comment) =>
         selectedAgeOptions.some((option) => option.value === comment.age)
       );
     }
-    console.log("Selected AGE Options: ", selectedAgeOptions)
- 
-if (selectedGenderOptions.length > 0) {
-  filtered = filtered.filter((comment) =>
-    selectedGenderOptions.some((option) =>
-      comment.gender.includes(option.value)
-    )
-  );
-}
 
-if (selectedsexualOrientationOption.length > 0) {
-  filtered = filtered.filter((comment) =>
-    selectedsexualOrientationOption.some((option) =>
-      comment.sexual_orientation.includes(option.value)
-    )
-  );
-}
+    if (selectedGenderOptions.length > 0) {
+      filtered = filtered.filter((comment) =>
+        selectedGenderOptions.some((option) =>
+          comment.gender.includes(option.value)
+        )
+      );
+    }
+
+    if (selectedsexualOrientationOption.length > 0) {
+      filtered = filtered.filter((comment) =>
+        selectedsexualOrientationOption.some((option) =>
+          comment.sexual_orientation.includes(option.value)
+        )
+      );
+    }
 
     if (selectedBipocOption.length > 0) {
       filtered = filtered.filter((comment) =>
@@ -107,33 +101,46 @@ if (selectedsexualOrientationOption.length > 0) {
 
   let filteredList = getFilteredList();
 
-  //////////////////////
-
+  // sort comments by date
+  const sortedList = sortOrder === "asc" ? [...filteredList] : [...filteredList].reverse();
+  // remove comment
   async function handleRemoveComment(id) {
-    const response = await fetch(`/api/comments/${id}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      await response.json();
-    } else {
-      console.error(`Error: ${response.status}`);
+    try {
+      const response = await fetch(`/api/comments/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        await response.json();
+      } else {
+        console.error(`Error: ${response.status}`);
+      }
+
+      loadComments();
+      mutate(`/api/comments/${id}`);
+    } catch (error) {
+      console.error("Error removing comment:", error);
     }
-    loadComments();
-    mutate(`/api/comments/${id}`);
   }
 
   async function handleRemoveLocation(id) {
-    const response = await fetch(`/api/locations/${id}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      await response.json();
-    } else {
-      console.error(`Error: ${response.status}`);
+    try {
+      const response = await fetch(`/api/locations/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        await response.json();
+      } else {
+        console.error(`Error: ${response.status}`);
+      }
+
+      router.push("/");
+      loadLocations();
+      locations.mutate();
+    } catch (error) {
+      console.error("Error removing location:", error);
     }
-    router.push("/");
-    loadLocations();
-    locations.mutate();
   }
 
   if (specificLocation) {
@@ -149,6 +156,11 @@ if (selectedsexualOrientationOption.length > 0) {
                 <LocationHeaderDetails specificLocation={specificLocation} />
                 <div className="title-header">
                   <h3>Comments</h3>
+                  <div className="sort-icons">
+                    <FaSortUp onClick={() => setSortOrder("asc")} />
+                  <FaSortDown onClick={() => setSortOrder("desc")} />
+                  </div>
+                 
                   <div className="modal">
                     <ModalCommentForm
                       loadComments={loadComments}
@@ -165,6 +177,8 @@ if (selectedsexualOrientationOption.length > 0) {
                       selectedGenderOptions={selectedGenderOptions}
                       selectedBipocOption={selectedBipocOption}
                     />
+                  
+
                     <ModalCommentFilter
                       setSelectedAgeOptions={setSelectedAgeOptions}
                       setSelectedGenderOptions={setSelectedGenderOptions}
@@ -184,8 +198,7 @@ if (selectedsexualOrientationOption.length > 0) {
                     />
                   </div>
                 </div>
-                {/* <CommentsContainer> */}
-                {filteredList.map((item) => {
+                {sortedList.map((item) => {
                   const {
                     comment,
                     age,
@@ -225,7 +238,6 @@ if (selectedsexualOrientationOption.length > 0) {
                     </div>
                   );
                 })}
-        
                 {session ? (
                   <div className="delete-location">
                     <h4>Delete this location</h4>
@@ -257,11 +269,9 @@ export const getServerSideProps = async (context) => {
 const StyledBackground = styled.div`
   width: 100vw;
   height: 100vh;
-  
   background: url(${(props) => props.backgroundImageUrl}),
     lightgray 50% / cover no-repeat;
 `;
-
 
 const StyledLocationContainer = styled.div`
   width: 100%;
@@ -302,11 +312,10 @@ const StyledLocationContainer = styled.div`
   }
 `;
 
-
 const BlurredContentWrapper = styled.div`
-width: 100vw;
-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(252, 252, 253, 0.9);
   padding: 20px;
-  overflow: auto; 
+  overflow: auto;
 `;
