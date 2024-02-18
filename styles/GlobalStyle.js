@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         
   font-family: 'Montserrat', sans-serif;
-  font-weight: lighter;
+  // font-weight: lighter;
   text-decoration: none;
 
 
@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
         height: 100%;
         width: 100%;
         background-color: #F6F5F8;
-        display: flex;
+        // display: flex;
         color: #101828;
       }
 
