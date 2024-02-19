@@ -45,14 +45,14 @@ const StyledAdminPage = styled.div`
   flex-direction: column;
   justify-content: center;
   color: black;
-  margin: 30% auto;
+  margin: 10%;
   font-size: 1em;
   button {
-    width: 50px;
+    width: 100px;
     height: 40px;
     align-self: center;
     background-color: rgba(1, 72, 224, 0.7);
-    box-shadow: 0px 0px 5px 3px rgba(90, 90, 90, 0.75);
+    box-shadow: 0px 0px 5px 3px rgba(90, 90, 90, 0.3);
 
     color: whitesmoke;
     border-radius: 10px;

@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: #F6F5F8;
         // display: flex;
         color: #101828;
+      
       }
 
 
