@@ -11,7 +11,7 @@ export default async function handler(req, response) {
     try {
       const apiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
         address
-      )}.json?access_token=${accessToken}`;
+      )}.json?access_token=${process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}`;
 
       const apiResponse = await axios.get(apiUrl);
 

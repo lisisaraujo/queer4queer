@@ -24,7 +24,7 @@ export default function AddPlaceForm({ locationID, handleSubmit }) {
             <input id="name" name="name" />
             <div className="address-input">
               <label htmlFor="address">Address:</label>
-              <AddressAutofill accessToken={accessToken}>
+              <AddressAutofill accessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}>
                 <input
                   name="address"
                   placeholder="Address"

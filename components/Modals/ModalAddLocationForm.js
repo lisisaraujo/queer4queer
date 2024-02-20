@@ -74,7 +74,7 @@ export default function ModalAddLocationForm({ loadLocations }) {
           locationID={id}
           closeModal={closeModal}
           loadLocations={loadLocations}
-          // handleSubmit={handleSubmit}
+          handleSubmit={handleSubmit}
         />
       </CustomModal>
     </>
