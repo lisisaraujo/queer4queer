@@ -64,7 +64,7 @@ export default function MyMap({ locations, loadLocations }) {
     <>
       <ReactMapGL
         mapStyle="mapbox://styles/dalalamad/clf8n2lcn002001pjbso7lz8r"
-        mapboxAccessToken={accessToken}
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         {...viewport}
         onMove={(evt) => setViewport(evt.viewport)}
       >
