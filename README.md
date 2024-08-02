@@ -1,46 +1,12 @@
 ## Queer2Queer Map Application
 
-This application was build using React, Next.js, MongoDB and Mapbox API.
+This application was build using React, Next.js, MongoDB and Mapbox API. Vercel deployment link available. 
 
-With the aim of creating "safer" queer spaces in the city, it features queer locations in Berlin. It allows users to browse for specific kind of locations on the map and read other people's experiences in chosen locations, add their own experiences, and filter through comments to read the experiences of specific groups of people. Users are also able to add new locations to the map.
+With the aim of creating "safer" queer spaces in the city, it features queer locations in Berlin. It allows users to browse for specific kind of locations on the map and read other people's experiences in chosen locations, add their own experiences, and filter through comments to read the experiences of specific groups of people. Users are also able to add new locations to the map. 
 
 ---
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img width="348" alt="Screenshot 2024-08-02 at 19 00 55" src="https://github.com/user-attachments/assets/7cbaf006-83f6-4d64-808c-988b5d651064">
+<img width="346" alt="Screenshot 2024-08-02 at 19 01 06" src="https://github.com/user-attachments/assets/c81207b0-f9de-4bb5-b1e8-c02dd2acffdc">
+<img width="348" alt="Screenshot 2024-08-02 at 19 02 25" src="https://github.com/user-attachments/assets/319c5ef6-32b0-49b8-bf1a-8b0c6c772fcf">
+<img width="347" alt="Screenshot 2024-08-02 at 19 03 41" src="https://github.com/user-attachments/assets/6695fa88-53fe-462f-a10f-b1c5646d7d03">
