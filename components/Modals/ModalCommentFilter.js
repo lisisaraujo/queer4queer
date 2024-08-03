@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import { IoFilter } from "react-icons/io5";
 import styled from "styled-components";
 import CustomModal from "./CustomModal";
-import CategoryCheckboxFilter from "../Filters/CategoryCheckboxFilter";
 
 const closeButtonStyle = {
   color: "whitesmoke",

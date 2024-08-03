@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Select from "react-select";
 import { useRouter } from "next/router";
 import { AddressAutofill } from "@mapbox/search-js-react";
-import { accessToken } from "../../mapbox";
 import { selectFilterColorStyles, typeCategoryOptions } from "../../utils";
 
 export default function AddPlaceForm({ locationID, handleSubmit }) {
