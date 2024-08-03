@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import { accessToken } from "../mapbox";
+import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
+import useSWR from 'swr';
 import Link from "next/link";
-import { GeolocateControl, NavigationControl } from "react-map-gl";
 import Navbar from "./Navbar";
 import ModalAddLocationForm from "./Modals/ModalAddLocationForm";
 import {
@@ -11,17 +10,20 @@ import {
   cruisingIconMap,
   communityIconMap,
   otherIconMap,
-  mapIcons,
 } from "../utils";
 
-export default function MyMap({ locations, loadLocations }) {
+const fetcher = (url) => fetch(url).then((r) => r.json());
+
+export default function MyMap() {
   const locationNameStyle = {
     color: "white",
   };
-  const [selectedLocation, setSelectedLocation] = useState({});
-  const [filteredLocations, setFilteredLocations] = useState(locations);
-  const [selectedCategory, setSelectedCategory] = useState("");
 
+  const { data: locations, error, mutate } = useSWR('/api/locations', fetcher);
+  
+console.log("locations:", locations)
+  const [selectedLocation, setSelectedLocation] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [viewport, setViewport] = useState({
     height: "100%",
     width: "100%",
@@ -30,40 +32,26 @@ export default function MyMap({ locations, loadLocations }) {
     zoom: 12,
   });
 
-  function onMarker(event) {
+  // Update filtered locations when locations or selectedCategory change
+  const filteredLocations = useMemo(() => {
+    if (!locations) return [];
+    if (!selectedCategory || selectedCategory === "") return locations;
+    return locations.filter((location) => selectedCategory.includes(location.type));
+  }, [locations, selectedCategory]);
+
+  const onMarker = (event) => {
     const id = event.currentTarget.getAttribute("location-id");
     const location = locations.find((l) => l._id === id);
-
     setSelectedLocation(location);
-  }
-
-  useEffect(() => {
-    setFilteredLocations(locations);
-  }, [locations]);
-
-  const getFilteredList = () => {
-    let filtered = [...filteredLocations];
-
-    if (!selectedCategory || selectedCategory.includes("")) {
-      return filtered;
-    }
-
-    filtered = filtered.filter((location) =>
-      selectedCategory.includes(location.type)
-    );
-
-    return filtered;
   };
 
-  const filteredList = useMemo(getFilteredList, [
-    selectedCategory,
-    filteredLocations,
-  ]);
+  if (error) return <div>Failed to load locations</div>;
+  if (!locations) return <div>Loading...</div>;
 
   return (
     <>
       <ReactMapGL
-        mapStyle="mapbox://styles/laraujo/clv5ohc8f00ky01quh8nqhlre"
+        mapStyle="mapbox://styles/laraujo/clzczlsgl00aw01qr1pjabs28"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         {...viewport}
         onMove={(evt) => setViewport(evt.viewport)}
@@ -71,68 +59,42 @@ export default function MyMap({ locations, loadLocations }) {
         <Navbar
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
-          loadLocations={loadLocations}
-        ></Navbar>
-        {filteredList.map((location) => {
-          return (
-            <div key={location._id}>
-              <Marker
-                key={location._id}
-                longitude={parseFloat(location.lngLat[1])}
-                latitude={parseFloat(location.lngLat[0])}
-                style={{ cursor: "pointer" }}
+          loadLocations={mutate} // Use mutate to refresh locations
+        />
+        {filteredLocations.map((location) => (
+          <div key={location._id}>
+            <Marker
+              longitude={parseFloat(location.lngLat[1])}
+              latitude={parseFloat(location.lngLat[0])}
+              style={{ cursor: "pointer" }}
+            >
+              <p className="location-name" style={locationNameStyle}>
+                {location.name}
+              </p>
+              <Link
+                href={`/location-page/${location._id}`}
+                location-id={location._id}
+                role="icon"
+                onClick={onMarker}
+                aria-label="push-pin"
               >
-                <p className="location-name" style={locationNameStyle}>
-                  {location.name}
-                </p>
-                <Link
-                  href={`/location-page/${location._id}`}
-                  location-id={location._id}
-                  role="icon"
-                  onClick={onMarker}
-                  aria-label="push-pin"
-                >
-                  {/* {location.type === "Bar" && mapIcons}
-                  {location.type === "Club" && mapIcons}
-                  {location.type === "Cruising" && mapIcons}
-                  {location.type === "Community-Center" && mapIcons}
-                  {location.type === "Other" && mapIcons} */}
-
-                  {location.type === "Bar" && barIconMap}
-                  {location.type === "Club" && clubIconMap}
-                  {location.type === "Cruising" && cruisingIconMap}
-                  {location.type === "Community-Center" && communityIconMap}
-                  {location.type === "Other" && otherIconMap}
-                </Link>
-              </Marker>
-              {/* {selectedLocation._id === location._id && (
-                <div id="pop-up">
-                  <Popup
-                    anchor="bottom"
-                    longitude={parseFloat(location.lngLat[1])}
-                    latitude={parseFloat(location.lngLat[0])}
-                    closeOnClick={false}
-                  >
-                    <div className="location-link">
-                      <Link href={`/location-page/${location._id}`}>
-                        {location.name}
-                      </Link>
-                    </div>
-                  </Popup>
-                </div>
-              )} */}
-            </div>
-          );
-        })}
+                {location.type === "Bar" && barIconMap}
+                {location.type === "Club" && clubIconMap}
+                {location.type === "Cruising" && cruisingIconMap}
+                {location.type === "Community-Center" && communityIconMap}
+                {location.type === "Other" && otherIconMap}
+              </Link>
+            </Marker>
+          </div>
+        ))}
 
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
           position="bottom-left"
         />
-        {/* <NavigationControl position="bottom-left" /> */}
         <div className="add-location">
-          <ModalAddLocationForm loadLocations={loadLocations} />
+          <ModalAddLocationForm mutateLocations={mutate} />
         </div>
       </ReactMapGL>
     </>

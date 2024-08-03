@@ -2,11 +2,7 @@ import LocationDetails from "../../components/LocationDetails";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-export default function LocationPage({
-  loadLocations,
-  locations,
-  loadComments,
-}) {
+export default function LocationPage() {
   const [specificLocation, setSpecificLocation] = useState();
   const router = useRouter();
   const { id } = router.query;
@@ -19,7 +15,6 @@ export default function LocationPage({
         setSpecificLocation(specificLocation);
       };
       fetchSpecificLocation();
-      loadComments();
     }
   }, [id]);
   if (specificLocation) {
@@ -27,11 +22,9 @@ export default function LocationPage({
 
     return (
       <>
-        <title>{specificLocation.name}</title>
+        <title>{name}</title>
 
         <LocationDetails
-          loadLocations={loadLocations}
-          locations={locations}
           specificLocation={specificLocation}
         />
       </>

@@ -11,10 +11,9 @@ import useSWR, { mutate } from "swr";
 import ModalCommentFilter from "./Modals/ModalCommentFilter";
 import { FaSortDown, FaSortUp } from "react-icons/fa";
 
-export default function LocationDetails({ loadLocations, specificLocation }) {
+export default function LocationDetails({ specificLocation }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(false);
-  const locations = useSWR("/api/locations");
   const iconStylesDelete = { color: "red", fontSize: "2em" };
   const backgroundImageUrl =
     "https://res.cloudinary.com/dvaayrczh/image/upload/v1695840462/backgroundImageMap_wcqxi9.png"; // Replace with the actual URL
@@ -48,7 +47,7 @@ export default function LocationDetails({ loadLocations, specificLocation }) {
 
   useEffect(() => {
     loadComments();
-  }, [id]);
+  }, [comments]);
 
   useEffect(() => {
     setFilteredComments(comments);

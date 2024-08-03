@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "react-modal";
-import CategoryFilter from "../Filters/CategoryFilter";
 import { useRouter } from "next/router";
 import { IoFilter } from "react-icons/io5";
 import styled from "styled-components";

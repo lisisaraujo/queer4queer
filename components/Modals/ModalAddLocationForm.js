@@ -19,7 +19,7 @@ const customStyles = {
 
 Modal.setAppElement("div");
 
-export default function ModalAddLocationForm({ loadLocations }) {
+export default function ModalAddLocationForm({ mutateLocations }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -48,11 +48,11 @@ export default function ModalAddLocationForm({ loadLocations }) {
 
     if (response.ok) {
       await response.json();
+      mutateLocations();
     } else {
       console.error(`Error: ${response.status}`);
     }
 
-    loadLocations();
     document.getElementById("add-location-form").reset();
     closeModal();
   }
@@ -72,8 +72,6 @@ export default function ModalAddLocationForm({ loadLocations }) {
       >
         <AddPlaceForm
           locationID={id}
-          closeModal={closeModal}
-          loadLocations={loadLocations}
           handleSubmit={handleSubmit}
         />
       </CustomModal>
