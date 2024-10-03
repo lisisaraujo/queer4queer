@@ -14,7 +14,7 @@ import { FaSortDown, FaSortUp } from "react-icons/fa";
 export default function LocationDetails({ specificLocation }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(false);
-  const iconStylesDelete = { color: "red", fontSize: "2em" };
+  const iconStylesDelete = { color: "red", fontSize: "2em", cursor: "pointer" };
   const backgroundImageUrl =
     "https://res.cloudinary.com/dvaayrczh/image/upload/v1695840462/backgroundImageMap_wcqxi9.png"; // Replace with the actual URL
 
@@ -28,9 +28,8 @@ export default function LocationDetails({ specificLocation }) {
     useState([]);
   const [selectedBipocOption, setSelectedBipocOption] = useState([]);
   const [sortOrder, setSortOrder] = useState("desc");
-  const iconStyles = {   color: "#101828", fontSize: "1.8em", cursor: "pointer" };
+  const iconStyles = { color: "#101828", fontSize: "1.8em", cursor: "pointer" };
   const iconStylesClicked = { color: "#4d96ef", fontSize: "1.8em", cursor: "pointer" };
-;
 
   // load comments function
   async function loadComments() {
@@ -153,24 +152,82 @@ export default function LocationDetails({ specificLocation }) {
           <Header>{name}</Header>
           <BlurredContentWrapper>
             <StyledLocationContainer>
-              <div className="location-container">
-                <LocationHeaderDetails specificLocation={specificLocation} />
-                <div className="title-header">
-                  <h3>Comments</h3>
-                  <div className="sort-icons">
-                  <FaSortUp
-                    style={sortOrder === "asc" ? iconStylesClicked : iconStyles}
+              <LocationHeaderDetails specificLocation={specificLocation} />
+              <TitleHeader>
+                <h3>Comments</h3>
+                <SortIcons>
+                  <SortButton
+                    active={sortOrder === "asc"}
                     onClick={() => setSortOrder("asc")}
-                  />
-                  <FaSortDown
-                    style={sortOrder === "desc" ? iconStylesClicked : iconStyles}
+                  >
+                    <FaSortUp />
+                  </SortButton>
+                  <SortButton
+                    active={sortOrder === "desc"}
                     onClick={() => setSortOrder("desc")}
+                  >
+                    <FaSortDown />
+                  </SortButton>
+                </SortIcons>
+                <ModalContainer>
+                  <ModalCommentForm
+                    loadComments={loadComments}
+                    setSelectedAgeOptions={setSelectedAgeOptions}
+                    setSelectedGenderOptions={setSelectedGenderOptions}
+                    setSelectedsexualOrientationOption={
+                      setSelectedsexualOrientationOption
+                    }
+                    setSelectedBipocOption={setSelectedBipocOption}
+                    selectedsexualOrientationOption={
+                      selectedsexualOrientationOption
+                    }
+                    selectedAgeOptions={selectedAgeOptions}
+                    selectedGenderOptions={selectedGenderOptions}
+                    selectedBipocOption={selectedBipocOption}
                   />
-                  </div>
-                 
-                  <div className="modal">
-                    <ModalCommentForm
-                      loadComments={loadComments}
+                  <ModalCommentFilter
+                    setSelectedAgeOptions={setSelectedAgeOptions}
+                    setSelectedGenderOptions={setSelectedGenderOptions}
+                    setSelectedsexualOrientationOption={
+                      setSelectedsexualOrientationOption
+                    }
+                    setSelectedBipocOption={setSelectedBipocOption}
+                    selectedsexualOrientationOption={
+                      selectedsexualOrientationOption
+                    }
+                    selectedAgeOptions={selectedAgeOptions}
+                    selectedGenderOptions={selectedGenderOptions}
+                    selectedBipocOption={selectedBipocOption}
+                    getFilteredList={getFilteredList}
+                    clearFilter={clearFilter}
+                    loadComments={loadComments}
+                  />
+                </ModalContainer>
+              </TitleHeader>
+              {sortedList.map((item) => {
+                const {
+                  comment,
+                  age,
+                  sexual_orientation,
+                  gender,
+                  bipoc,
+                  _id,
+                  date,
+                  name,
+                } = item;
+
+                return (
+                  <CommentCardWrapper key={_id}>
+                    <CommentCard
+                      on={() => router.push(`/${id}`)}
+                      name={name}
+                      comment={comment}
+                      age={age}
+                      gender={gender}
+                      bipoc={bipoc}
+                      date={date}
+                      sexual_orientation={sexual_orientation}
+                      onRemoveComment={() => handleRemoveComment(_id)}
                       setSelectedAgeOptions={setSelectedAgeOptions}
                       setSelectedGenderOptions={setSelectedGenderOptions}
                       setSelectedsexualOrientationOption={
@@ -184,79 +241,20 @@ export default function LocationDetails({ specificLocation }) {
                       selectedGenderOptions={selectedGenderOptions}
                       selectedBipocOption={selectedBipocOption}
                     />
-                  
-
-                    <ModalCommentFilter
-                      setSelectedAgeOptions={setSelectedAgeOptions}
-                      setSelectedGenderOptions={setSelectedGenderOptions}
-                      setSelectedsexualOrientationOption={
-                        setSelectedsexualOrientationOption
-                      }
-                      setSelectedBipocOption={setSelectedBipocOption}
-                      selectedsexualOrientationOption={
-                        selectedsexualOrientationOption
-                      }
-                      selectedAgeOptions={selectedAgeOptions}
-                      selectedGenderOptions={selectedGenderOptions}
-                      selectedBipocOption={selectedBipocOption}
-                      getFilteredList={getFilteredList}
-                      clearFilter={clearFilter}
-                      loadComments={loadComments}
-                    />
-                  </div>
-                </div>
-                {sortedList.map((item) => {
-                  const {
-                    comment,
-                    age,
-                    sexual_orientation,
-                    gender,
-                    bipoc,
-                    _id,
-                    date,
-                    name,
-                  } = item;
-
-                  return (
-                    <div className="comment-card" key={_id}>
-                      <CommentCard
-                        onClick={() => router.push(`/${id}`)}
-                        name={name}
-                        comment={comment}
-                        age={age}
-                        gender={gender}
-                        bipoc={bipoc}
-                        date={date}
-                        sexual_orientation={sexual_orientation}
-                        onRemoveComment={() => handleRemoveComment(_id)}
-                        setSelectedAgeOptions={setSelectedAgeOptions}
-                        setSelectedGenderOptions={setSelectedGenderOptions}
-                        setSelectedsexualOrientationOption={
-                          setSelectedsexualOrientationOption
-                        }
-                        setSelectedBipocOption={setSelectedBipocOption}
-                        selectedsexualOrientationOption={
-                          selectedsexualOrientationOption
-                        }
-                        selectedAgeOptions={selectedAgeOptions}
-                        selectedGenderOptions={selectedGenderOptions}
-                        selectedBipocOption={selectedBipocOption}
-                      />
-                    </div>
-                  );
-                })}
-                {session ? (
-                  <div className="delete-location">
-                    <h4>Delete this location</h4>
-                    <MdWrongLocation
-                      style={iconStylesDelete}
-                      onClick={() => {
-                        handleRemoveLocation(id);
-                      }}
-                    />
-                  </div>
-                ) : null}
-              </div>
+                  </CommentCardWrapper>
+                );
+              })}
+              {session ? (
+                <DeleteLocation>
+                  <h4>Delete this location</h4>
+                  <MdWrongLocation
+                    style={iconStylesDelete}
+                    onClick={() => {
+                      handleRemoveLocation(id);
+                    }}
+                  />
+                </DeleteLocation>
+              ) : null}
             </StyledLocationContainer>
           </BlurredContentWrapper>
         </StyledBackground>
@@ -276,53 +274,70 @@ export const getServerSideProps = async (context) => {
 const StyledBackground = styled.div`
   width: 100vw;
   height: 100vh;
-  background: url(${(props) => props.backgroundImageUrl}),
-    lightgray 50% / cover no-repeat;
+  background: url(${(props) => props.backgroundImageUrl}) lightgray 50% / cover no-repeat;
 `;
 
 const StyledLocationContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #d3d3d3; /* Labels color */
+  padding: 20px;
+`;
+
+const TitleHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  font-weight: bold;
+`;
+
+const SortIcons = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;
+
+const SortButton = styled.button`
+  background: none;
+  border: none;
+  color: ${(props) => (props.active ? "#4d96ef" : "#101828")};
+  font-size: 1.8em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #4d96ef;
+  }
+`;
+
+const ModalContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;
+
+const CommentCardWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+`;
+
+const DeleteLocation = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10vh;
   justify-content: center;
-  color: #101828;
-  h3 {
-    text-align: center;
-  }
-  .title-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5% 0%;
-    font-weight: bold;
-  }
-  .location-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-content: center;
-    width: 95vw;
-    margin: 0 auto;
-  }
-  .modal {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 25%;
-  }
-  .delete-location {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 10vh;
-    justify-content: center;
-  }
 `;
 
 const BlurredContentWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: rgba(252, 252, 253, 0.9);
+  background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
   padding: 20px;
   overflow: auto;
 `;

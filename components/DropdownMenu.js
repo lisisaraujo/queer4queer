@@ -2,14 +2,15 @@ import { useState, useEffect, useRef } from "react";
 import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai";
 import { HiMenuAlt1 } from "react-icons/hi";
 import Link from "next/link";
+import styled from "styled-components";
 
 export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuList = ["About", "Contact", "Feedback", "Ressources", "Admin"];
   const iconStyles = {
-    color: "black",
-    width: " 24px",
-    height: " 24px",
+    color: "#d3d3d3", // Labels color
+    width: "24px",
+    height: "24px",
     cursor: "pointer",
   };
   const menuRef = useRef(null);
@@ -29,35 +30,90 @@ export default function DropdownMenu() {
   }, []);
 
   return (
-    <div
-      className="relative flex flex-col items-center sm:w-fit rounded-lg"
-      ref={menuRef}
-    >
-      <button
-        onClick={() => setIsOpen((prev) => !prev)}
-        className="bg-blue-450 p-4 flex items-center justify-between font-bold text-lg rounded-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-black sm:ml-4 sm:w-fit"
-      >
+    <DropdownContainer ref={menuRef}>
+      <DropdownButton onClick={() => setIsOpen((prev) => !prev)}>
         <HiMenuAlt1 style={iconStyles} />
         {isOpen ? (
-          <AiOutlineCaretUp className="h-4" />
+          <AiOutlineCaretUp className="icon" />
         ) : (
-          <AiOutlineCaretDown className="h-4" />
+          <AiOutlineCaretDown className="icon" />
         )}
-      </button>
+      </DropdownButton>
       {isOpen && (
-        <div className="bg-slate-50 opacity-90 absolute top-16 sm:top-20 left-0 sm:left-auto ml-4 sm:ml-10 flex flex-col items-start rounded-lg p-2 sm:w-fit">
+        <DropdownMenuList>
           {menuList.map((item) => (
-            <div
-              className="flex w-full justify-between p-4 hover:bg-blue-300 cursor-pointer rounded-r-lg border-l-transparent hover:border-l-white border-l-4"
-              key={item}
-            >
-              <Link className="font-bold" href={`/menu/${item.toLowerCase()}`}>
-                {item}
-              </Link>
-            </div>
+            <DropdownMenuItem key={item}>
+              <Link href={`/menu/${item.toLowerCase()}`}>{item}</Link>
+            </DropdownMenuItem>
           ))}
-        </div>
+        </DropdownMenuList>
       )}
-    </div>
+    </DropdownContainer>
   );
 }
+
+const DropdownContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  border-radius: 8px;
+`;
+
+const DropdownButton = styled.button`
+  background-color: transparent; // Make background transparent
+  padding: 8px; // Reduce padding
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #d3d3d3; // Labels color
+  border: none; // Remove border
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(75, 0, 130, 0.1); // Add subtle hover background
+  }
+
+  .icon {
+    margin-left: 8px;
+  }
+`;
+
+const DropdownMenuList = styled.div`
+  background-color: rgba(28, 28, 28, 0.9); // Base color with opacity
+  opacity: 0.9;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const DropdownMenuItem = styled.div`
+  width: 100%;
+  padding: 12px 16px;
+  border-left: 4px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #4d96ef; // Accent color
+    border-left-color: #d3d3d3; // Labels color
+  }
+
+  a {
+    font-weight: bold;
+    color: #d3d3d3; // Labels color
+    text-decoration: none;
+  }
+`;

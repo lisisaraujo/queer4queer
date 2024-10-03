@@ -14,8 +14,11 @@ const StyledBackground = styled.div`
   z-index: -1; /* Place the background behind other content */
   background-image: url(${(props) => props.backgroundImageUrl});
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   filter: blur(10px); /* Apply the blur effect */
   opacity: 0.7; /* Adjust the opacity as needed */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity change */
 `;
 
 export default BackgroundBlur;

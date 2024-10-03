@@ -2,6 +2,7 @@ import React from "react";
 import { useSession, signOut, getSession } from "next-auth/react";
 import styled from "styled-components";
 import Header from "../../components/Header";
+
 export default function Account() {
   const { data: session, status } = useSession();
   const id = session?.user?.email;
@@ -48,42 +49,45 @@ export async function getServerSideProps(context) {
   };
 }
 
-// export const getServerSideProps = async (context) => {
-//   const session = await getSession(context);
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: "/login",
-//       },
-//     };
-//   }
-
-//   return {
-//     props: { session },
-//   };
-// };
-
 const StyledAdminPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: black;
-  margin: 30% 40%;
-  font-size: 1em;
-  button {
-    width: 80px;
-    height: 40px;
-    align-self: center;
-    background-color: rgba(1, 72, 224, 0.7);
-    box-shadow: 0px 0px 5px 3px rgba(90, 90, 90, 0.75);
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+  color: #d3d3d3; /* Labels color */
+  text-align: center;
 
+  .home, .sign-in {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1); /* Light background with opacity */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  p {
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  button {
+    width: 120px;
+    height: 40px;
+    background-color: rgba(75, 0, 130, 0.8); /* Accent color */
     color: whitesmoke;
-    border-radius: 10px;
-    margin-bottom: 10%;
-    border-style: none;
-    margin-top: 30px;
+    border-radius: 8px; /* Rounded corners */
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
     &:hover {
-      box-shadow: 0px 0px 18px 2px rgba(125, 125, 125, 0.75);
+      background-color: rgba(75, 0, 130, 1); /* Darker accent color on hover */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
     }
   }
 `;

@@ -15,7 +15,7 @@ export default function Navbar({
         <div className="navbar-left">
           <DropdownMenu />
         </div>
-        <div className="title">Queer2Queer</div>
+        <div className="title">Queer4Queer</div>
         <div className="navbar-right">
           <div className="filter-icon">
             <ModalFilterHomepage
@@ -35,56 +35,38 @@ export default function Navbar({
 const NavbarWrapper = styled.nav`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   position: sticky;
   top: 0;
   width: 100%;
-  height: 54px;
-  gap: 20px;
-  flex-shrink: 0;
-  color: rgba(16, 24, 40, 1);
-  background: rgba(252, 252, 253, 0.9);
+  height: 60px;
+  padding: 0 20px;
+  background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 1000;
 
   .title {
-    display: flex;
-    align-items: center;
-    color: #101828;
-    font-feature-settings: "clig" off, "liga" off;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
+    color: #d3d3d3; /* Labels color */
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 25px;
-  }
-  .navbar-left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
-    color: #101828;
-    /* font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 25px; */
-
-    @media (max-width: 320px) {
-      justify-content: center;
-    }
+    line-height: 1.25;
   }
 
+  .navbar-left,
   .navbar-right {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 12px;
-    color: rgba(16, 24, 40, 1);
-    margin-right: 10%;
+  }
 
-    @media (max-width: 320px) {
-      flex-direction: column;
-      align-items: flex-start;
-      padding-left: 10px;
-    }
+  .navbar-left {
+    justify-content: flex-start;
+  }
+
+  .navbar-right {
+    justify-content: flex-end;
   }
 
   .filter-icon {
@@ -94,5 +76,28 @@ const NavbarWrapper = styled.nav`
     width: 24px;
     height: 24px;
     cursor: pointer;
+    color: rgba(75, 0, 130, 0.8); /* Accent color */
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: rgba(75, 0, 130, 1); /* Darker accent color on hover */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title {
+      font-size: 18px;
+    }
+
+    .navbar-left,
+    .navbar-right {
+      gap: 8px;
+    }
   }
 `;

@@ -9,9 +9,13 @@ const customStyles = {
     left: "50%",
     transform: "translate(-50%, -50%)",
     padding: "0",
-    background: "rgba(252, 252, 253, 0.5)",
-    width: "100%",
-    height: "100%",
+    background: "rgba(28, 28, 28, 0.8)", // Base color with opacity
+    border: "none",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    width: "80%",
+    height: "90vh", // Increased height to 90% of the viewport height
+    overflow: "auto"
   },
 };
 
@@ -60,83 +64,69 @@ export default function CustomModal({
 }
 
 const StyledModal = styled.div`
+  padding: 20px;
+
   .header {
     width: 100%;
-    height: 54px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between; /* Use space-between to place the title in the center and close button on the right */
-    color: #101828;
-    position: fixed;
-    background: rgba(252, 252, 253, 0.9);
-    border-bottom: 1px solid #d0d5dd;
+    justify-content: space-between;
+    color: #d3d3d3; /* Labels color */
+    background: transparent;
+    border-bottom: 1px solid #4b0082; /* Streets color */
+    padding-bottom: 10px;
   }
 
   .title {
-    text-align: center; /* Center the title text */
-    flex-grow: 1; /* Allow the title to take up available space */
+    text-align: center;
+    flex-grow: 1;
   }
 
   .close-btn {
-    margin-right: 10px; /* Add some margin to the right of the close button */
-    font-size: x-large;
+    font-size: 1.5rem;
+    color: #d3d3d3; /* Labels color */
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   h1 {
     margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .modal-content {
+    margin-top: 20px;
+    color: #d3d3d3; /* Labels color */
   }
 
   .apply-cancel-btns {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .apply-button,
+  .cancel-button {
+    width: 48%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    font-family: Inter, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
   }
 
   .apply-button {
-    display: flex;
-    width: 207px;
-    height: 48px;
-    padding: 24px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 200px;
-    border: 1px solid #4d96ef;
-    background: #4d96ef;
-    margin-bottom: 2%;
-    color: #fcfcfd;
-
-    font-family: Inter;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; /* 0.9rem */
-    letter-spacing: 0.125rem;
-    text-transform: uppercase;
+    background: #4b0082; /* Streets color */
+    color: #d3d3d3; /* Labels color */
   }
 
   .cancel-button {
-    display: flex;
-    width: 207px;
-    height: 48px;
-    padding: 24px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 200px;
-    border: 1px solid #4d96ef;
-    background: #fcfcfd;
-    color: #4d96ef;
-    margin-bottom: 5vh;
-
-    /* Button */
-    font-family: Inter;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; /* 0.9rem */
-    letter-spacing: 0.125rem;
-    text-transform: uppercase;
+    background: #1c1c1c; /* Base color */
+    color: #d3d3d3; /* Labels color */
   }
 `;

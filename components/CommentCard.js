@@ -17,25 +17,24 @@ export default function CommentCard({
 
   const filterNonEmptyValues = (arr) => arr.filter(Boolean);
 
-
   return (
     <>
       <CardFrame>
         <div className="demographic-data">
-          {name && <p>commented by: {name} </p>}
+          {name && <p>commented by: {name}</p>}
           {age && <span className="demographic-data-tag">#{age}</span>}
 
-{filterNonEmptyValues(sexual_orientation).map((tag) => (
-      <span key={tag} className="demographic-data-tag">#{tag} </span>
-    ))}
+          {filterNonEmptyValues(sexual_orientation).map((tag) => (
+            <span key={tag} className="demographic-data-tag">#{tag}</span>
+          ))}
 
-    {filterNonEmptyValues(gender).map((tag) => (
-      <span key={tag} className="demographic-data-tag">#{tag} </span>
-    ))}
+          {filterNonEmptyValues(gender).map((tag) => (
+            <span key={tag} className="demographic-data-tag">#{tag}</span>
+          ))}
 
           {bipoc && (
             <span className="demographic-data-tag">
-              {bipoc === "Yes" ? "#BIPoC " : null}
+              {bipoc === "Yes" ? "#BIPoC" : null}
             </span>
           )}
         </div>
@@ -49,8 +48,6 @@ export default function CommentCard({
     </>
   );
 }
-
-// ... rest of the component
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
@@ -68,51 +65,50 @@ export const getServerSideProps = async (context) => {
 };
 
 const CardFrame = styled.div`
-  border-color: transparent;
-  border-style: none;
+  border: 1px solid var(--accent-color); /* Use accent color */
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 20px;
   margin-bottom: 20px;
-  border-radius: 5px;
-  box-shadow: 1px 4px 4px 1px rgba(54, 54, 54, 0.1);
-  color: #101828;
-  background-color: #fcfcfd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #d3d3d3; /* Labels color */
+  background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
   max-width: 100%;
   overflow: hidden;
 
   .demographic-data {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
   }
 
   .demographic-data-tag {
-    color: #4d96ef;
+    color: var(--accent-color); /* Use accent color */
     font-weight: bold;
     border-style: none;
-    padding: 0.5% 2%; 
-    color: #4d96ef;
+    padding: 0.5% 2%;
     font-feature-settings: "clig" off, "liga" off;
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-size: 13px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
-    margin-right: 5px; 
-    margin-bottom: 5px; 
+    margin-right: 5px;
+    margin-bottom: 5px;
   }
 
   .comment {
     overflow: hidden;
-    word-wrap: break-word; 
-    margin-bottom: 10px; 
+    word-wrap: break-word;
+    margin-bottom: 10px;
+    color: #d3d3d3; /* Labels color */
   }
 
   .date {
     font-size: 0.8rem;
     text-align: right;
-    color: #101828;
+    color: #d3d3d3; /* Labels color */
   }
 `;
 
@@ -130,4 +126,8 @@ const DeleteIcon = styled(RiDeleteBinLine)`
   color: orangered;
   align-self: flex-end;
   position: relative;
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
 `;

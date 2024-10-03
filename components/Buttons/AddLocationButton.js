@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function AddLocationButton({ openModal }) {
   const iconStyles = {
-    color: "black",
+    color: "#d3d3d3", // Labels color
     width: "24px",
     height: "24px",
     flexShrink: "0",
@@ -30,8 +30,15 @@ export const StyledButton = styled.button`
   width: 48px;
   height: 48px;
   flex-shrink: 0;
-  border-radius: 68px;
-  background: rgba(252, 252, 253, 0.9);
-  box-shadow: 3px 7px 6px 2px rgba(0, 0, 0, 0.16);
-  color: rgba(252, 252, 253, 0.7);
+  border-radius: 50%; // Changed to 50% for a perfect circle
+  background: rgba(28, 28, 28, 0.9); // Base color with opacity
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for a modern look
+  color: #d3d3d3; // Labels color
+  border: none; // Removed border for a cleaner look
+  cursor: pointer;
+  transition: background 0.3s ease; // Smooth transition for hover effect
+
+  &:hover {
+    background: rgba(75, 0, 130, 0.8); // Streets color with opacity for hover effect
+  }
 `;

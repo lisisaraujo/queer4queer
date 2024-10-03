@@ -53,15 +53,17 @@ export const genderCategoriesArr = [
 ];
 
 export const selectFilterColorStyles = {
-  control: (styles) => ({ ...styles, backgroundColor: "white" }),
-  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+  control: (styles) => ({ ...styles, backgroundColor: "#1c1c1c", color: "#d3d3d3", borderColor: "#4b0082" }),
+  option: (styles, { isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: "rgba(77, 150, 239, 0.8)",
-      color: "#FFF",
+      backgroundColor: isSelected ? "#4b0082" : isFocused ? "rgba(75, 0, 130, 0.8)" : "#1c1c1c",
+      color: "#d3d3d3",
       cursor: isDisabled ? "not-allowed" : "default",
     };
   },
+  singleValue: (styles) => ({ ...styles, color: "#d3d3d3" }),
+  placeholder: (styles) => ({ ...styles, color: "#d3d3d3" }),
 };
 
 export const ageCategories = [
@@ -105,15 +107,17 @@ export const bipocCategories = [
 ];
 
 export const colorStyles = {
-  control: (styles) => ({ ...styles, backgroundColor: "white" }),
-  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+  control: (styles) => ({ ...styles, backgroundColor: "#1c1c1c", color: "#d3d3d3", borderColor: "#4b0082" }),
+  option: (styles, { isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: "rgba(77, 150, 239, 0.8)",
-      color: "#FFF",
+      backgroundColor: isSelected ? "#4b0082" : isFocused ? "rgba(75, 0, 130, 0.8)" : "#1c1c1c",
+      color: "#d3d3d3",
       cursor: isDisabled ? "not-allowed" : "default",
     };
   },
+  singleValue: (styles) => ({ ...styles, color: "#d3d3d3" }),
+  placeholder: (styles) => ({ ...styles, color: "#d3d3d3" }),
 };
 
 export const iconStylesMap = {
@@ -121,14 +125,15 @@ export const iconStylesMap = {
   width: "20px",
   height: "20px",
   flexShrink: "0",
-  color: "#FCFCFD",
+  color: "#d3d3d3",
 };
 
 export const iconStylesLocationCard = {
-  color: "white",
+  color: "#d3d3d3",
   fontSize: "2em",
   cursor: "pointer",
 };
+
 export const barIconMap = <FaGlassMartiniAlt style={iconStylesMap} />;
 export const clubIconMap = <MdNoPhotography style={iconStylesMap} />;
 export const cruisingIconMap = <MdDirectionsBoat style={iconStylesMap} />;

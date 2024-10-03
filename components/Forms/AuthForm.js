@@ -113,7 +113,7 @@ export default function AuthForm() {
               </Button> */}
               </>
             ) : (
-           null
+              null
             )}
           </ButtonWrapper>
         </EntryForm>
@@ -125,14 +125,18 @@ export default function AuthForm() {
 const StyledLabel = styled.label`
   margin-top: 20px;
   padding-bottom: 10px;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-size: 10pt;
+  color: #d3d3d3; /* Labels color */
 `;
 
 const Wrapper = styled.div`
   border-radius: 20px;
-  border: 1px solid black;
+  border: 1px solid #d3d3d3; /* Border color */
+  background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 `;
 
 const EntryForm = styled.form`
@@ -142,7 +146,7 @@ const EntryForm = styled.form`
 `;
 
 const StyledHeader = styled.h2`
-  color: red;
+  color: #d3d3d3; /* Labels color */
   font-size: 14pt;
   text-align: center;
   text-transform: uppercase;
@@ -151,18 +155,26 @@ const StyledHeader = styled.h2`
 
 const StyledInput = styled.input`
   border: none;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #d3d3d3; /* Border color */
   padding: 5px 10px;
   outline: none;
+  background-color: transparent;
+  color: #d3d3d3; /* Text color */
+  margin-bottom: 20px;
 `;
 
 const Button = styled.button`
   border: none;
-  background: none;
-  color: var(--first-color);
-  &:active {
-    color: black;
-    font-size: 12pt;
+  background-color: rgba(75, 0, 130, 0.8); /* Accent color */
+  color: whitesmoke;
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: rgba(75, 0, 130, 1); /* Darker accent color on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
   }
 `;
 

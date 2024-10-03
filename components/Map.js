@@ -11,17 +11,18 @@ import {
   communityIconMap,
   otherIconMap,
 } from "../utils";
+import styled from "styled-components";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function MyMap() {
   const locationNameStyle = {
-    color: "white",
+    color: "#d3d3d3", // Labels color
   };
 
   const { data: locations, error, mutate } = useSWR('/api/locations', fetcher);
-  
-console.log("locations:", locations)
+
+  console.log("locations:", locations)
   const [selectedLocation, setSelectedLocation] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("");
   const [viewport, setViewport] = useState({
@@ -50,8 +51,8 @@ console.log("locations:", locations)
 
   return (
     <>
-      <ReactMapGL
-        mapStyle="mapbox://styles/laraujo/clzczlsgl00aw01qr1pjabs28"
+      <StyledMap
+        mapStyle="mapbox://styles/laraujo/cm1tplg6900i301pg7j1eg7ps"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         {...viewport}
         onMove={(evt) => setViewport(evt.viewport)}
@@ -71,19 +72,21 @@ console.log("locations:", locations)
               <p className="location-name" style={locationNameStyle}>
                 {location.name}
               </p>
-              <Link
+              <StyledLink
                 href={`/location-page/${location._id}`}
                 location-id={location._id}
                 role="icon"
                 onClick={onMarker}
                 aria-label="push-pin"
               >
-                {location.type === "Bar" && barIconMap}
-                {location.type === "Club" && clubIconMap}
-                {location.type === "Cruising" && cruisingIconMap}
-                {location.type === "Community-Center" && communityIconMap}
-                {location.type === "Other" && otherIconMap}
-              </Link>
+                <IconWrapper>
+                  {location.type === "Bar" && barIconMap}
+                  {location.type === "Club" && clubIconMap}
+                  {location.type === "Cruising" && cruisingIconMap}
+                  {location.type === "Community-Center" && communityIconMap}
+                  {location.type === "Other" && otherIconMap}
+                </IconWrapper>
+              </StyledLink>
             </Marker>
           </div>
         ))}
@@ -96,7 +99,29 @@ console.log("locations:", locations)
         <div className="add-location">
           <ModalAddLocationForm mutateLocations={mutate} />
         </div>
-      </ReactMapGL>
+      </StyledMap>
     </>
   );
 }
+
+const StyledMap = styled(ReactMapGL)`
+  width: 100vw;
+  height: 100vh;
+`;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const IconWrapper = styled.div`
+  background-color: rgba(75, 0, 130, 0.4); 
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(75, 0, 130, 0.7); 
+  }
+`;

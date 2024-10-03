@@ -17,7 +17,7 @@ export default function AddPlaceForm({ locationID, handleSubmit }) {
             id="location"
             name="location"
             value={locationID}
-          ></input>
+          />
           <div className="location-input-field">
             <label htmlFor="name">Name of location:</label>
             <input id="name" name="name" />
@@ -45,7 +45,7 @@ export default function AddPlaceForm({ locationID, handleSubmit }) {
               </AddressAutofill>
             </div>
             <label htmlFor="type">What type of location is it?</label>
-            <Select
+            <StyledSelect
               defaultValue={null}
               options={typeCategoryOptions}
               name="type"
@@ -64,36 +64,122 @@ const EntryForm = styled.form`
   text-align: start;
   width: 100%;
   height: 100%;
-  color: black;
+  color: #d3d3d3; /* Labels color */
+  background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 60px 30px 30px 30px;
+  margin: 20px 0;
 
   .location-input-field {
     display: flex;
-    margin-top: 10%;
-    align-items: center;
     flex-direction: column;
     gap: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
+    width: 100%;
   }
 
   .address-input {
     display: flex;
-
     flex-direction: column;
-    /* gap: 20px; */
-    border-radius: 10px;
+    gap: 10px;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  label {
+    color: #d3d3d3; /* Labels color */
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
   }
 
   input {
     display: flex;
     align-items: center;
     border-radius: 5px;
-    margin-bottom: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #4b0082; /* Streets color */
+    background: rgba(28, 28, 28, 0.8); /* Base color with opacity */
+    color: #d3d3d3; /* Labels color */
+  }
+
+  @media (max-width: 768px) {
+    .location-input-field,
+    .address-input {
+      gap: 15px;
+    }
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .location-input-field,
+    .address-input {
+      gap: 10px;
+    }
+
+    label {
+      font-size: 0.8rem;
+    }
+
+    input {
+      padding: 6px;
+      margin-bottom: 6px;
+    }
+  }
+`;
+
+const StyledSelect = styled(Select)`
+  .react-select__control {
+    background: rgba(28, 28, 28, 0.8); /* Base color with opacity */
+    border: 1px solid #4b0082; /* Streets color */
+    color: #d3d3d3; /* Labels color */
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1rem;
+  }
+
+  .react-select__menu {
+    background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+    color: #d3d3d3; /* Labels color */
+  }
+
+  .react-select__option {
+    background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+    color: #d3d3d3; /* Labels color */
+    &:hover {
+      background: rgba(75, 0, 130, 0.8); /* Accent color on hover */
+    }
+  }
+
+  .react-select__single-value {
+    color: #d3d3d3; /* Labels color */
+  }
+
+  .react-select__placeholder {
+    color: #d3d3d3; /* Labels color */
   }
 `;

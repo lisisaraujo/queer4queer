@@ -44,23 +44,40 @@ const StyledAdminPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: black;
-  margin: 10%;
-  font-size: 1em;
-  button {
-    width: 100px;
-    height: 40px;
-    align-self: center;
-    background-color: rgba(1, 72, 224, 0.7);
-    box-shadow: 0px 0px 5px 3px rgba(90, 90, 90, 0.3);
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+  color: #d3d3d3; /* Labels color */
+  text-align: center;
 
+  p {
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  img {
+    border-radius: 50px;
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    width: 120px;
+    height: 40px;
+    background-color: rgba(75, 0, 130, 0.8); /* Accent color */
     color: whitesmoke;
-    border-radius: 10px;
-    margin-bottom: 10%;
-    border-style: none;
-    margin-top: 30px;
+    border-radius: 8px; /* Rounded corners */
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
     &:hover {
-      box-shadow: 0px 0px 18px 2px rgba(125, 125, 125, 0.75);
+      background-color: rgba(75, 0, 130, 1); /* Darker accent color on hover */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
     }
   }
 `;

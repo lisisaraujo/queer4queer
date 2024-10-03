@@ -35,6 +35,7 @@ export default function ModalFilterHomepage({
     closeModal();
     loadLocations();
   };
+
   return (
     <div className="flex relative justify-center">
       <StyledButton>
@@ -50,12 +51,12 @@ export default function ModalFilterHomepage({
         desiredCancelFunction={clearCategoryFilter}
         desiredApplyFunction={handleApplyFilter}
       >
-        <div className="flex flex-col items-center p-20 space-y-8">
+        <ModalContent>
           <CategoryCheckboxFilter
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
-        </div>
+        </ModalContent>
       </CustomModal>
     </div>
   );
@@ -68,4 +69,22 @@ export const StyledButton = styled.button`
     cursor: pointer;
   }
   position: relative;
+`;
+
+const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+    gap: 10px;
+  }
 `;

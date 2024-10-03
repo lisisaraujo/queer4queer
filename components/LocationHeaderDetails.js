@@ -36,18 +36,36 @@ export default function LocationCard({ specificLocation }) {
 }
 
 const StyledLocationHeader = styled.div`
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  color: #101828;
+  color: #d3d3d3; /* Labels color */
   text-align: center;
+  padding: 20px;
+  background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 
   .location-icon {
-    padding: 30px;
+    padding: 20px;
     border-radius: 50%;
-    background-color: rgba(77, 150, 239, 0.5);
+    background-color: rgba(75, 0, 130, 0.8); /* Accent color with opacity */
+    margin-bottom: 20px;
   }
+
   h2 {
     font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #d3d3d3; /* Labels color */
   }
 `;

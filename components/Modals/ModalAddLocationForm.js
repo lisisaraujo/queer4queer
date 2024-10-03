@@ -1,23 +1,8 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
 import { useRouter } from "next/router";
 import AddPlaceForm from "../Forms/AddPlaceForm";
 import AddLocationButton from "../Buttons/AddLocationButton";
 import CustomModal from "./CustomModal";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    padding: "0",
-    background: "rgba(252, 252, 253, 0.9)",
-    width: "100%",
-    height: "100%",
-  },
-};
-
-Modal.setAppElement("div");
 
 export default function ModalAddLocationForm({ mutateLocations }) {
   const router = useRouter();
@@ -67,13 +52,10 @@ export default function ModalAddLocationForm({ mutateLocations }) {
         title="Add Location"
         applyText="Submit"
         cancelText="Cancel"
-        desiredCancelFunction={closeModal}
         desiredApplyFunction={handleSubmit}
+        desiredCancelFunction={closeModal}
       >
-        <AddPlaceForm
-          locationID={id}
-          handleSubmit={handleSubmit}
-        />
+        <AddPlaceForm locationID={id} handleSubmit={handleSubmit} />
       </CustomModal>
     </>
   );

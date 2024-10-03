@@ -19,31 +19,53 @@ export default function CategoryCheckboxFilter({
     <>
       <StyledCheckboxFilter>
         {typeCategoryOptions.map((option) => (
-          <ul key={option.value}>
+          <li key={option.value}>
             <label>
-              {option.label}
               <input
                 type="checkbox"
                 value={option.value}
                 checked={selectedCategory.includes(option.value)}
                 onChange={handleCheckboxChange}
               />
+              {option.label}
             </label>
-          </ul>
+          </li>
         ))}
       </StyledCheckboxFilter>
     </>
   );
 }
 
-const StyledCheckboxFilter = styled.div`
+const StyledCheckboxFilter = styled.ul`
   display: flex;
   flex-direction: column;
-  width: 15em;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+
+  li {
+    margin: 10px 0;
+  }
 
   label {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin: 5% 10%;
+    background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+    color: #d3d3d3; /* Labels color */
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: rgba(75, 0, 130, 0.8); /* Streets color with opacity */
+    }
+
+    input {
+      margin-right: 10px;
+      accent-color: #4b0082; /* Streets color */
+    }
   }
 `;
