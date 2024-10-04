@@ -54,7 +54,7 @@ export default function CustomModal({
           <button className="apply-button" onClick={desiredApplyFunction}>
             {applyText}
           </button>
-          <button className="cancel-button" onClick={closeModal}>
+          <button className="cancel-button" onClick={desiredCancelFunction}>
             {cancelText}
           </button>
         </div>
@@ -72,9 +72,9 @@ const StyledModal = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     background: transparent;
-    border-bottom: 1px solid #4b0082; /* Streets color */
+    border-bottom: 1px solid #6a0dad; /* Streets color */
     padding-bottom: 10px;
   }
 
@@ -85,7 +85,7 @@ const StyledModal = styled.div`
 
   .close-btn {
     font-size: 1.5rem;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     background: none;
     border: none;
     cursor: pointer;
@@ -98,7 +98,7 @@ const StyledModal = styled.div`
 
   .modal-content {
     margin-top: 20px;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
   }
 
   .apply-cancel-btns {
@@ -121,12 +121,12 @@ const StyledModal = styled.div`
   }
 
   .apply-button {
-    background: #4b0082; /* Streets color */
-    color: #d3d3d3; /* Labels color */
+    background: #6a0dad; /* Streets color */
+    color: #F5A9B8; /* Labels color */
   }
 
   .cancel-button {
     background: #1c1c1c; /* Base color */
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
   }
 `;

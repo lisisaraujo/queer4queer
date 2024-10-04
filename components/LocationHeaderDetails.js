@@ -39,7 +39,7 @@ const StyledLocationHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #d3d3d3; /* Labels color */
+  color: #F5A9B8; /* Labels color */
   text-align: center;
   padding: 20px;
   background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
@@ -49,7 +49,7 @@ const StyledLocationHeader = styled.div`
   .location-icon {
     padding: 20px;
     border-radius: 50%;
-    background-color: rgba(0, 191, 255, 0.7); /* Accent color with opacity */
+    background-color: rgba(91, 206, 250, 0.6); 
     margin-bottom: 20px;
   }
 
@@ -66,6 +66,6 @@ const StyledLocationHeader = styled.div`
 
   p {
     font-size: 16px;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
   }
 `;

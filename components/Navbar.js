@@ -47,7 +47,7 @@ const NavbarWrapper = styled.nav`
   z-index: 1000;
 
   .title {
-    color: #d3d3d3; /* Labels color */
+    color:#F5A9B8; /* Labels color */
     font-family: Montserrat, sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -76,7 +76,7 @@ const NavbarWrapper = styled.nav`
     width: 24px;
     height: 24px;
     cursor: pointer;
-    color: #d3d3d3;
+    color: #F5A9B8;
     transition: color 0.3s ease;
 
     &:hover {

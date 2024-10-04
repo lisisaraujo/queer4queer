@@ -102,7 +102,7 @@ const StyledFilter = styled.div`
   label {
     display: block;
     margin-bottom: 8px;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     font-size: 1rem;
     font-weight: 600;
   }

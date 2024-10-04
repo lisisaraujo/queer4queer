@@ -146,7 +146,7 @@ const EntryForm = styled.form`
     margin-bottom: 10%;
     border-style: none;
     margin-top: 10px;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     font-size: 1.2em;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
@@ -160,20 +160,20 @@ const EntryForm = styled.form`
     display: flex;
     position: relative;
     background-color: rgba(28, 28, 28, 0.8); /* Base color with opacity */
-    border: 1px solid #4b0082; /* Streets color */
+    border: 1px solid #6a0dad; /* Streets color */
     padding: 15px;
     text-align: left;
     min-width: 18.5rem;
     height: 11.125rem;
     margin: 15px auto 40px auto;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     border-radius: 8px;
   }
 
   input {
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     border-radius: 5px;
-    border: 1px solid #4b0082; /* Streets color */
+    border: 1px solid #6a0dad; /* Streets color */
     padding: 10px;
     background: rgba(28, 28, 28, 0.8); /* Base color with opacity */
   }
@@ -246,7 +246,7 @@ const StyledFilter = styled.div`
   }
 
   label {
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 5px;

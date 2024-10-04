@@ -8,7 +8,7 @@ export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuList = ["About", "Contact", "Feedback", "Ressources", "Admin"];
   const iconStyles = {
-    color: "#d3d3d3", // Labels color
+    color: "#F5A9B8", // Labels color
     width: "24px",
     height: "24px",
     cursor: "pointer",
@@ -69,7 +69,7 @@ const DropdownButton = styled.button`
   justify-content: space-between;
   font-weight: bold;
   font-size: 1rem;
-  color: #d3d3d3; // Labels color
+  color: #F5A9B8; // Labels color
   border: none; // Remove border
   border-radius: 8px;
   cursor: pointer;
@@ -108,12 +108,12 @@ const DropdownMenuItem = styled.div`
 
   &:hover {
     background-color: #4d96ef; // Accent color
-    border-left-color: #d3d3d3; // Labels color
+    border-left-color: #F5A9B8; // Labels color
   }
 
   a {
     font-weight: bold;
-    color: #d3d3d3; // Labels color
+    color: #F5A9B8; // Labels color
     text-decoration: none;
   }
 `;

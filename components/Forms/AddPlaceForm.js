@@ -64,7 +64,7 @@ const EntryForm = styled.form`
   text-align: start;
   width: 100%;
   height: 100%;
-  color: #d3d3d3; /* Labels color */
+  color: #F5A9B8; /* Labels color */
   background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
   padding: 20px;
   border-radius: 8px;
@@ -102,7 +102,7 @@ const InputWrapper = styled.div`
   }
 
   label {
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 5px;
@@ -114,9 +114,9 @@ const InputWrapper = styled.div`
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #4b0082; /* Streets color */
+    border: 1px solid #6a0dad; /* Streets color */
     background: rgba(28, 28, 28, 0.8); /* Base color with opacity */
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
   }
 
   @media (max-width: 768px) {
@@ -155,8 +155,8 @@ const InputWrapper = styled.div`
 const StyledSelect = styled(Select)`
   .react-select__control {
     background: rgba(28, 28, 28, 0.8); /* Base color with opacity */
-    border: 1px solid #4b0082; /* Streets color */
-    color: #d3d3d3; /* Labels color */
+    border: 1px solid #6a0dad; /* Streets color */
+    color: #F5A9B8; /* Labels color */
     border-radius: 5px;
     padding: 5px;
     font-size: 1rem;
@@ -164,22 +164,22 @@ const StyledSelect = styled(Select)`
 
   .react-select__menu {
     background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
   }
 
   .react-select__option {
     background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     &:hover {
-      background: rgba(75, 0, 130, 0.8); /* Accent color on hover */
+      background: rgba(91, 206, 250, 0.6); /* Accent color on hover */
     }
   }
 
   .react-select__single-value {
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
   }
 
   .react-select__placeholder {
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
   }
 `;

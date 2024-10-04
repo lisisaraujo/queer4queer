@@ -15,7 +15,7 @@ export default function ModalFilterHomepage({
 }) {
   const router = useRouter();
   const iconStyles = {
-    color: "#d3d3d3",
+    color: "#F5A9B8",
     width: "24px",
     height: "24px",
     flexShrink: "0",
@@ -82,13 +82,13 @@ export const StyledButton = styled.button`
   border-radius: 50%;
   background: rgba(28, 28, 28, 0.9); // Base color with opacity
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for a modern look
-  color: #d3d3d3; // Labels color
+  color: #F5A9B8; // Labels color
   border: none; // Removed border for a cleaner look
   cursor: pointer;
   transition: background 0.3s ease; // Smooth transition for hover effect
 
   &:hover {
-    background: rgba(75, 0, 130, 0.8); // Streets color with opacity for hover effect
+    background: rgba(91, 206, 250, 0.6); // Streets color with opacity for hover effect
   }
 `;
 const ModalContent = styled.div`

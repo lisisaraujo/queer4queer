@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     background-color: #1c1c1c; /* Base color */
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     pointer-events: auto;
     position: relative;
     opacity: 0.9;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     font-size: 1em;
     border-radius: 8px;
   }
@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
     position: absolute;
     right: 10px;
     top: 10px;
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     font-size: 1.5em;
   }
 

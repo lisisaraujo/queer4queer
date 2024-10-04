@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export default function ReturnButton() {
   const iconStyles = {
-    color: "#d3d3d3", // Updated to match the app's label color
+    color: "#F5A9B8", // Updated to match the app's label color
     fontSize: "2em",
     cursor: "pointer",
   };
@@ -31,7 +31,7 @@ export const StyledButton = styled.button`
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    background-color: rgba(75, 0, 130, 1); /* Darker accent color on hover */
+    background-color: rgba(91, 206, 250, 0.6); /* Darker accent color on hover */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
   }
 `;

@@ -282,7 +282,7 @@ const StyledLocationContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #d3d3d3; /* Labels color */
+  color: #F5A9B8; /* Labels color */
   padding: 20px;
 `;
 
@@ -305,13 +305,13 @@ const SortIcons = styled.div`
 const SortButton = styled.button`
   background: none;
   border: none;
-  color: ${(props) => (props.active ? "#4d96ef" : "#101828")};
+  color: ${(props) => (props.active ? "#5BCEFA" : "#F5A9B8")};
   font-size: 1.8em;
   cursor: pointer;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #4d96ef;
+    color: #5BCEFA;
   }
 `;
 

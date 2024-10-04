@@ -40,7 +40,7 @@ const StyledSection = styled.div`
   height: 100vh;
   padding: 20px;
   background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-  color: #d3d3d3; /* Labels color */
+  color: #F5A9B8; /* Labels color */
   text-align: center;
 
   .description {

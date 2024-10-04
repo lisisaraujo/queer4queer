@@ -53,17 +53,17 @@ export const genderCategoriesArr = [
 ];
 
 export const selectFilterColorStyles = {
-  control: (styles) => ({ ...styles, backgroundColor: "#1c1c1c", color: "#d3d3d3", borderColor: "#4b0082" }),
+  control: (styles) => ({ ...styles, backgroundColor: "#1c1c1c", color: "#F5A9B8", borderColor: "#6a0dad" }),
   option: (styles, { isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: isSelected ? "#4b0082" : isFocused ? "rgba(75, 0, 130, 0.8)" : "#1c1c1c",
-      color: "#d3d3d3",
+      backgroundColor: isSelected ? "#6a0dad" : isFocused ? "rgba(91, 206, 250, 0.6)" : "#1c1c1c",
+      color: "#F5A9B8",
       cursor: isDisabled ? "not-allowed" : "default",
     };
   },
-  singleValue: (styles) => ({ ...styles, color: "#d3d3d3" }),
-  placeholder: (styles) => ({ ...styles, color: "#d3d3d3" }),
+  singleValue: (styles) => ({ ...styles, color: "#F5A9B8" }),
+  placeholder: (styles) => ({ ...styles, color: "#F5A9B8" }),
 };
 
 export const ageCategories = [
@@ -107,17 +107,17 @@ export const bipocCategories = [
 ];
 
 export const colorStyles = {
-  control: (styles) => ({ ...styles, backgroundColor: "#1c1c1c", color: "#d3d3d3", borderColor: "#4b0082" }),
+  control: (styles) => ({ ...styles, backgroundColor: "#1c1c1c", color: "#F5A9B8", borderColor: "#6a0dad" }),
   option: (styles, { isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: isSelected ? "#4b0082" : isFocused ? "rgba(75, 0, 130, 0.8)" : "#1c1c1c",
-      color: "#d3d3d3",
+      backgroundColor: isSelected ? "#6a0dad" : isFocused ? "rgba(91, 206, 250, 0.6)" : "#1c1c1c",
+      color: "#F5A9B8",
       cursor: isDisabled ? "not-allowed" : "default",
     };
   },
-  singleValue: (styles) => ({ ...styles, color: "#d3d3d3" }),
-  placeholder: (styles) => ({ ...styles, color: "#d3d3d3" }),
+  singleValue: (styles) => ({ ...styles, color: "#F5A9B8" }),
+  placeholder: (styles) => ({ ...styles, color: "#F5A9B8" }),
 };
 
 export const iconStylesMap = {
@@ -125,11 +125,11 @@ export const iconStylesMap = {
   width: "18px",
   height: "18px",
   flexShrink: "0",
-  color: "#d3d3d3",
+  color: "#F5A9B8",
 };
 
 export const iconStylesLocationCard = {
-  color: "#d3d3d3",
+  color: "#F5A9B8",
   fontSize: "2em",
   cursor: "pointer",
 };

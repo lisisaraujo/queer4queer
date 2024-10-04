@@ -54,7 +54,7 @@ const CardFrame = styled.div`
   margin-bottom: 20px;
   border-radius: 12px;
   background-color: rgba(28, 28, 28, 0.85);
-  color: #d3d3d3; /* Labels color */
+  color: #F5A9B8; /* Labels color */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
 

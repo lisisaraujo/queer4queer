@@ -53,19 +53,19 @@ const StyledCheckboxFilter = styled.ul`
     align-items: center;
     justify-content: space-between;
     background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-    color: #d3d3d3; /* Labels color */
+    color: #F5A9B8; /* Labels color */
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.3s ease;
 
     &:hover {
-      background: rgba(75, 0, 130, 0.8); /* Streets color with opacity */
+      background: rgba(91, 206, 250, 0.6); /* Streets color with opacity */
     }
 
     input {
       margin-right: 10px;
-      accent-color: #4b0082; /* Streets color */
+      accent-color: #6a0dad; /* Streets color */
     }
   }
 `;
