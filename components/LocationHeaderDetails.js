@@ -49,7 +49,7 @@ const StyledLocationHeader = styled.div`
   .location-icon {
     padding: 20px;
     border-radius: 50%;
-    background-color: rgba(75, 0, 130, 0.8); /* Accent color with opacity */
+    background-color: rgba(0, 191, 255, 0.7); /* Accent color with opacity */
     margin-bottom: 20px;
   }
 

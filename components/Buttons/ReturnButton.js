@@ -23,7 +23,7 @@ export const StyledButton = styled.button`
   justify-content: center;
   width: 48px; /* Increased size for better usability */
   height: 48px; /* Increased size for better usability */
-  background-color: rgba(75, 0, 130, 0.8); /* Accent color */
+  
   border: none;
   border-radius: 50%; /* Rounded button */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */

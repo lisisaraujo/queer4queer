@@ -54,7 +54,7 @@ export default function CustomModal({
           <button className="apply-button" onClick={desiredApplyFunction}>
             {applyText}
           </button>
-          <button className="cancel-button" onClick={desiredCancelFunction}>
+          <button className="cancel-button" onClick={closeModal}>
             {cancelText}
           </button>
         </div>

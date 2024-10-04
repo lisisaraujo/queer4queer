@@ -16,7 +16,7 @@ export default function LocationDetails({ specificLocation }) {
   const [isLoading, setLoading] = useState(false);
   const iconStylesDelete = { color: "red", fontSize: "2em", cursor: "pointer" };
   const backgroundImageUrl =
-    "https://res.cloudinary.com/dvaayrczh/image/upload/v1695840462/backgroundImageMap_wcqxi9.png"; // Replace with the actual URL
+    "https://res.cloudinary.com/dvaayrczh/image/upload/v1695840462/backgroundImageMap_wcqxi9.png";
 
   const { data: session } = useSession();
   const router = useRouter();
@@ -298,8 +298,8 @@ const TitleHeader = styled.div`
 
 const SortIcons = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  flex-direction: column;
+  gap: 2px;
 `;
 
 const SortButton = styled.button`

@@ -122,8 +122,8 @@ export const colorStyles = {
 
 export const iconStylesMap = {
   display: "flex",
-  width: "20px",
-  height: "20px",
+  width: "18px",
+  height: "18px",
   flexShrink: "0",
   color: "#d3d3d3",
 };

@@ -17,7 +17,7 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function MyMap() {
   const locationNameStyle = {
-    color: "#d3d3d3", // Labels color
+    color: "#d3d3d3",
   };
 
   const { data: locations, error, mutate } = useSWR('/api/locations', fetcher);
@@ -116,12 +116,12 @@ const StyledLink = styled(Link)`
 `;
 
 const IconWrapper = styled.div`
-  background-color: rgba(75, 0, 130, 0.4); 
+  background-color: rgba(75, 0, 130, 0.3); 
   border-radius: 50%;
   padding: 10px;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: rgba(75, 0, 130, 0.7); 
+    background-color: rgba(0, 191, 255, 0.6); 
   }
 `;

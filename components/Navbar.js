@@ -76,7 +76,7 @@ const NavbarWrapper = styled.nav`
     width: 24px;
     height: 24px;
     cursor: pointer;
-    color: rgba(75, 0, 130, 0.8); /* Accent color */
+    color: #d3d3d3;
     transition: color 0.3s ease;
 
     &:hover {

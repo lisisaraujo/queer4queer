@@ -18,116 +18,102 @@ export default function CommentCard({
   const filterNonEmptyValues = (arr) => arr.filter(Boolean);
 
   return (
-    <>
-      <CardFrame>
-        <div className="demographic-data">
-          {name && <p>commented by: {name}</p>}
-          {age && <span className="demographic-data-tag">#{age}</span>}
-
-          {filterNonEmptyValues(sexual_orientation).map((tag) => (
-            <span key={tag} className="demographic-data-tag">#{tag}</span>
-          ))}
-
-          {filterNonEmptyValues(gender).map((tag) => (
-            <span key={tag} className="demographic-data-tag">#{tag}</span>
-          ))}
-
-          {bipoc && (
-            <span className="demographic-data-tag">
-              {bipoc === "Yes" ? "#BIPoC" : null}
-            </span>
-          )}
-        </div>
-        <CommentStyle>
-          <p className="comment">{comment}</p>
-        </CommentStyle>
-
-        {session ? <DeleteIcon onClick={() => onRemoveComment(_id)} /> : null}
-        <div className="date">{date}</div>
-      </CardFrame>
-    </>
+    <CardFrame>
+      <DemographicData>
+        {name && <Author>{`Commented by: ${name}`}</Author>}
+        {age && <Tag>#{age}</Tag>}
+        {filterNonEmptyValues(sexual_orientation).map((tag) => (
+          <Tag key={tag}>#{tag}</Tag>
+        ))}
+        {filterNonEmptyValues(gender).map((tag) => (
+          <Tag key={tag}>#{tag}</Tag>
+        ))}
+        {bipoc && bipoc === "Yes" && <Tag>#BIPoC</Tag>}
+      </DemographicData>
+      <CommentStyle>
+        <Comment>{comment}</Comment>
+      </CommentStyle>
+      {session && <DeleteIcon onClick={() => onRemoveComment(_id)} />}
+      <Date>{date}</Date>
+    </CardFrame>
   );
 }
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
-  // if (!session) {
-  //   return {
-  //     redirect: {
-  //       destination: "/login",
-  //     },
-  //   };
-  // }
-
   return {
     props: { session },
   };
 };
 
 const CardFrame = styled.div`
-  border: 1px solid var(--accent-color); /* Use accent color */
+  border: none;
   display: flex;
   flex-direction: column;
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: rgba(28, 28, 28, 0.85);
   color: #d3d3d3; /* Labels color */
-  background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-  max-width: 100%;
-  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 
-  .demographic-data {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
+  &:hover {
+    transform: translateY(-5px);
   }
+`;
 
-  .demographic-data-tag {
-    color: var(--accent-color); /* Use accent color */
-    font-weight: bold;
-    border-style: none;
-    padding: 0.5% 2%;
-    font-feature-settings: "clig" off, "liga" off;
-    font-family: Montserrat, sans-serif;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 18px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
+const DemographicData = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+`;
 
-  .comment {
-    overflow: hidden;
-    word-wrap: break-word;
-    margin-bottom: 10px;
-    color: #d3d3d3; /* Labels color */
-  }
+const Author = styled.p`
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 600;
+`;
 
-  .date {
-    font-size: 0.8rem;
-    text-align: right;
-    color: #d3d3d3; /* Labels color */
-  }
+const Tag = styled.span`
+  color: var(--accent-color); /* Use accent color */
+  font-weight: 600;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 12px; /* Rounded tags for a modern look */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for tags */
+  margin-right: 5px;
+  margin-bottom: 5px;
 `;
 
 const CommentStyle = styled.div`
   display: flex;
-  position: relative;
-  flex-direction: column;
-  width: auto;
-  max-width: 100%;
+  margin-bottom: 10px;
+`;
+
+const Comment = styled.p`
+  overflow-wrap: break-word;
+  margin-bottom: auto; /* Allow the comment to take available space */
+  font-size: 14px;
+  line-height: 1.5;
+`;
+
+const Date = styled.div`
+  font-size: 12px;
+  text-align: right;
+  color: #a9a9a9;
 `;
 
 const DeleteIcon = styled(RiDeleteBinLine)`
   width: 20px;
-  height: 20px;
+  height: auto; /* Maintain aspect ratio */
   color: orangered;
   align-self: flex-end;
-  position: relative;
   cursor: pointer;
+
   &:hover {
-    color: red;
+    color: red; /* Subtle hover effect */
+    transform: scale(1.1); /* Slightly enlarge on hover for emphasis */
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
   }
 `;
