@@ -22,7 +22,7 @@ export default function CommentForm({
   selectedBipocOption,
 }) {
   return (
-    <div>
+    <FormContainer>
       <EntryForm onSubmit={desiredApplyFunction} id="comment-form">
         <input type="hidden" name="location" value={locationID} />
         <div className="comment-card">
@@ -101,73 +101,46 @@ export default function CommentForm({
           </StyledFilter>
         </div>
       </EntryForm>
-    </div>
+    </FormContainer>
   );
 }
+
+const FormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+`;
 
 const EntryForm = styled.form`
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 100%;
-  align-items: center;
-  margin-top: 5vh;
-  justify-content: space-evenly;
+  max-width: 600px;
   background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   .comment-card {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    width: 100%;
-    max-width: 500px;
-    font-weight: 700;
     margin-bottom: 20px;
   }
 
   .demographic-data {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 20px;
-    align-content: space-around;
+    margin-bottom: 20px;
   }
 
-  .submit-button {
-    width: 120px;
-    height: 50px;
-    align-self: center;
-    background-color: rgba(75, 0, 130, 0.7); /* Streets color with opacity */
-    box-shadow: 0px 0px 5px 3px rgba(90, 90, 90, 0.75);
-    border-radius: 10px;
-    margin-bottom: 10%;
-    border-style: none;
-    margin-top: 10px;
-    color: #F5A9B8; /* Labels color */
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
 
-    &:hover {
-      box-shadow: 0px 0px 18px 2px rgba(125, 125, 125, 0.75);
-    }
-  }
 
   textarea {
-    display: flex;
-    position: relative;
+    width: 100%;
     background-color: rgba(28, 28, 28, 0.8); /* Base color with opacity */
     border: 1px solid #6a0dad; /* Streets color */
     padding: 15px;
-    text-align: left;
-    min-width: 18.5rem;
-    height: 11.125rem;
-    margin: 15px auto 40px auto;
     color: #F5A9B8; /* Labels color */
     border-radius: 8px;
+    margin-bottom: 20px;
   }
 
   input {
@@ -178,29 +151,22 @@ const EntryForm = styled.form`
     background: rgba(28, 28, 28, 0.8); /* Base color with opacity */
   }
 
-  .checkbox {
-    font-size: 1.2em;
-    display: flex;
-    justify-content: space-evenly;
-    margin: 10px auto;
+  label {
+    color: #F5A9B8; /* Labels color */
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
 
   @media (max-width: 768px) {
     padding: 15px;
 
-    .comment-card {
-      margin-bottom: 15px;
-    }
-
     .submit-button {
-      width: 100px;
-      height: 45px;
       font-size: 1em;
     }
 
     textarea {
       padding: 12px;
-      height: 10rem;
     }
 
     input {
@@ -211,19 +177,12 @@ const EntryForm = styled.form`
   @media (max-width: 480px) {
     padding: 10px;
 
-    .comment-card {
-      margin-bottom: 10px;
-    }
-
     .submit-button {
-      width: 90px;
-      height: 40px;
       font-size: 0.9em;
     }
 
     textarea {
       padding: 10px;
-      height: 9rem;
     }
 
     input {
@@ -235,14 +194,11 @@ const EntryForm = styled.form`
 const StyledFilter = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 60vh;
+  gap: 15px;
   width: 100%;
 
   .select-box {
     width: 100%;
-    margin-bottom: 15px;
   }
 
   label {
@@ -257,9 +213,7 @@ const StyledFilter = styled.div`
   }
 
   @media (max-width: 768px) {
-    .select-box {
-      margin-bottom: 10px;
-    }
+    gap: 10px;
 
     label {
       font-size: 0.9rem;
@@ -267,9 +221,7 @@ const StyledFilter = styled.div`
   }
 
   @media (max-width: 480px) {
-    .select-box {
-      margin-bottom: 8px;
-    }
+    gap: 8px;
 
     label {
       font-size: 0.8rem;

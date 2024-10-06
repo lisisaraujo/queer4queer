@@ -16,7 +16,7 @@ export default function LocationDetails({ specificLocation }) {
   const [isLoading, setLoading] = useState(false);
   const iconStylesDelete = { color: "red", fontSize: "2em", cursor: "pointer" };
   const backgroundImageUrl =
-    "https://res.cloudinary.com/dvaayrczh/image/upload/v1695840462/backgroundImageMap_wcqxi9.png";
+    "https://res.cloudinary.com/dvaayrczh/image/upload/v1728179909/queer4queer.png";
 
   const { data: session } = useSession();
   const router = useRouter();

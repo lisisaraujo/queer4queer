@@ -5,18 +5,23 @@ import { IoIosClose } from "react-icons/io";
 
 const customStyles = {
   content: {
-    top: "50%",
+    top: "55%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     padding: "0",
-    background: "rgba(28, 28, 28, 0.8)", // Base color with opacity
+    background: "rgba(28, 28, 28, 0.9)", // Base color with opacity
     border: "none",
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     width: "80%",
     height: "90vh", // Increased height to 90% of the viewport height
-    overflow: "auto"
+    overflow: "auto",
+    pointerEvents: "auto" // Ensure modal content can capture touch events
   },
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    pointerEvents: "auto" // Ensure overlay doesn't capture touch events
+  }
 };
 
 Modal.setAppElement("div");
@@ -118,15 +123,54 @@ const StyledModal = styled.div`
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .apply-button {
     background: #6a0dad; /* Streets color */
     color: #F5A9B8; /* Labels color */
+
+    &:hover {
+      background: #7b1fa2; /* Darker shade for hover effect */
+      box-shadow: 0px 0px 10px 2px rgba(123, 31, 162, 0.75);
+    }
   }
 
   .cancel-button {
     background: #1c1c1c; /* Base color */
     color: #F5A9B8; /* Labels color */
+
+    &:hover {
+      background: #333; /* Slightly lighter shade for hover effect */
+      box-shadow: 0px 0px 10px 2px rgba(51, 51, 51, 0.75);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    .header {
+      padding-bottom: 8px;
+    }
+
+    .apply-button,
+    .cancel-button {
+      padding: 8px;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+
+    .header {
+      padding-bottom: 6px;
+    }
+
+    .apply-button,
+    .cancel-button {
+      padding: 6px;
+      font-size: 0.75rem;
+    }
   }
 `;

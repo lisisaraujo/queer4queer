@@ -24,7 +24,9 @@ export default function LocationCard({ specificLocation }) {
           <h4>{specificLocation.type}</h4>
           {specificLocation ? (
             <h4>
-              {specificLocation.address} | {specificLocation.postcode} {specificLocation.city}
+              {specificLocation.address && specificLocation.address.includes(",")
+                ? specificLocation.address.split(",")[0]
+                : specificLocation.address}  | {specificLocation.postcode} {specificLocation.city}
             </h4>
           ) : (
             <p>No address provided</p>

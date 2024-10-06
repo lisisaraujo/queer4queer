@@ -21,7 +21,21 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Changed to flex-start to allow scrolling */
+  }
+
+  .map-container {
+    width: 100%;
+    height: calc(100vh - 80px); /* Default height for larger screens */
+    position: relative;
+    overflow: hidden; /* Prevent overflow */
+  }
+
+  .add-location-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensure the button is above the map */
   }
 
   .mapboxgl-popup-content {
@@ -56,35 +70,45 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
   }
 
-  @media (max-width: 768px) {
-    body, div#__next {
-      padding: 10px;
-    }
+  /* Mobile First Styles */
+  
+   @media (max-width: 768px) {
+     body, div#__next {
+       padding: 10px; /* Add padding for smaller screens */
+     }
 
-    .mapboxgl-popup-content {
-      font-size: 0.9em;
-      padding: 8px;
-    }
+     .map-container {
+       height: calc(100vh - 120px); /* Adjust height for smaller screens */
+     }
 
-    .mapboxgl-popup-close-button {
-      font-size: 1.2em;
-      right: 8px;
-      top: 8px;
-    }
-  }
+     .mapboxgl-popup-content {
+       font-size: 0.9em; /* Smaller font size for mobile */
+       padding: 8px; 
+     }
 
-  @media (max-width: 480px) {
-    .mapboxgl-popup-content {
-      font-size: 0.8em;
-      padding: 6px;
-    }
+     .mapboxgl-popup-close-button {
+       font-size: 1.2em; 
+       right: 8px; 
+       top: 8px; 
+     }
+   }
 
-    .mapboxgl-popup-close-button {
-      font-size: 1em;
-      right: 6px;
-      top: 6px;
-    }
-  }
+   @media (max-width: 480px) {
+     .map-container {
+       height: calc(100vh - 150px); /* Further adjust height for very small screens */
+     }
+
+     .mapboxgl-popup-content {
+       font-size: 0.8em; 
+       padding: 6px; 
+     }
+
+     .mapboxgl-popup-close-button {
+       font-size: 1em; 
+       right: 6px; 
+       top: 6px; 
+     }
+   }
 `;
 
-export default GlobalStyle;
+export default GlobalStyle

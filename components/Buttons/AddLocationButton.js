@@ -31,7 +31,7 @@ export const StyledButton = styled.button`
   height: 48px;
   flex-shrink: 0;
   border-radius: 50%; // Changed to 50% for a perfect circle
-  background: rgba(28, 28, 28, 0.9); // Base color with opacity
+  background: rgba(91, 206, 250, 0.6); // Base color with opacity
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for a modern look
   color: #F5A9B8; // Labels color
   border: none; // Removed border for a cleaner look
@@ -39,6 +39,6 @@ export const StyledButton = styled.button`
   transition: background 0.3s ease; // Smooth transition for hover effect
 
   &:hover {
-     background-color: rgba(91, 206, 250, 0.6); // Streets color with opacity for hover effect
+     background-color: rgba(91, 206, 250, 0.8); // Streets color with opacity for hover effect
   }
 `;

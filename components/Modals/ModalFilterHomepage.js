@@ -91,6 +91,7 @@ export const StyledButton = styled.button`
     background: rgba(91, 206, 250, 0.6); // Streets color with opacity for hover effect
   }
 `;
+
 const ModalContent = styled.div`
   display: flex;
   flex-direction: column;

@@ -106,7 +106,6 @@ export const StyledButton = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-
   background: rgba(28, 28, 28, 0.9); // Base color with opacity
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for a modern look
   color: #F5A9B8; // Labels color

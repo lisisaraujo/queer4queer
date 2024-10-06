@@ -3,7 +3,7 @@ import Select from "react-select";
 import {
   genderCategories,
   sexualOrientationCategories,
-  colorStyles,
+  selectFilterColorStyles,
   ageCategories,
   bipocCategories,
 } from "../../utils";
@@ -31,7 +31,7 @@ export default function CommentFilter({
             onChange={setSelectedAgeOptions}
             options={ageCategories}
             name="age"
-            styles={colorStyles}
+            styles={selectFilterColorStyles}
             className="custom-select"
           />
         </div>
@@ -45,7 +45,7 @@ export default function CommentFilter({
             onChange={setSelectedsexualOrientationOption}
             options={sexualOrientationCategories}
             name="sexual_orientation"
-            styles={colorStyles}
+            styles={selectFilterColorStyles}
             className="custom-select"
           />
         </div>
@@ -59,7 +59,7 @@ export default function CommentFilter({
             onChange={setSelectedGenderOptions}
             options={genderCategories}
             name="gender"
-            styles={colorStyles}
+            styles={selectFilterColorStyles}
             className="custom-select"
           />
         </div>
@@ -73,7 +73,7 @@ export default function CommentFilter({
             onChange={setSelectedBipocOption}
             options={bipocCategories}
             name="bipoc"
-            styles={colorStyles}
+            styles={selectFilterColorStyles}
             className="custom-select"
           />
         </div>

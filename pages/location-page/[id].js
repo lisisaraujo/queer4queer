@@ -1,6 +1,7 @@
 import LocationDetails from "../../components/LocationDetails";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function LocationPage() {
   const [specificLocation, setSpecificLocation] = useState();
@@ -17,17 +18,20 @@ export default function LocationPage() {
       fetchSpecificLocation();
     }
   }, [id]);
+
   if (specificLocation) {
-    const { name, lngLat, type, address, city, postcode } = specificLocation;
+    const { name } = specificLocation;
 
     return (
       <>
-        <title>{name}</title>
+        <Head>
+          <title>{name}</title>
+        </Head>
 
-        <LocationDetails
-          specificLocation={specificLocation}
-        />
+        <LocationDetails specificLocation={specificLocation} />
       </>
     );
   }
+
+  return null;
 }

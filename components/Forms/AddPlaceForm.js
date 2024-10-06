@@ -29,10 +29,11 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
       const place = autocomplete.getPlace();
       const addressComponents = place.address_components;
 
-      console.log("Selected Place:", place);
+      // console.log("Selected Place:", place);
 
       setName(place.name);
       setAddress(place.formatted_address);
+      console.log(address)
 
       addressComponents.forEach((component) => {
         const types = component.types;
