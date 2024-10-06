@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import AddPlaceForm from "../Forms/AddPlaceForm";
 import AddLocationButton from "../Buttons/AddLocationButton";
@@ -9,6 +9,7 @@ export default function ModalAddLocationForm({ mutateLocations }) {
   const { id } = router.query;
 
   const [modalIsOpen, setIsOpen] = useState(false);
+  const formRef = useRef(null);
 
   function openModal() {
     setIsOpen(true);
@@ -20,7 +21,7 @@ export default function ModalAddLocationForm({ mutateLocations }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(document.getElementById("add-location-form"));
+    const formData = new FormData(formRef.current);
     const newLocation = Object.fromEntries(formData);
 
     const response = await fetch("/api/locations/create", {
@@ -38,7 +39,7 @@ export default function ModalAddLocationForm({ mutateLocations }) {
       console.error(`Error: ${response.status}`);
     }
 
-    document.getElementById("add-location-form").reset();
+    formRef.current.reset();
     closeModal();
   }
 
@@ -55,7 +56,7 @@ export default function ModalAddLocationForm({ mutateLocations }) {
         desiredApplyFunction={handleSubmit}
         desiredCancelFunction={closeModal}
       >
-        <AddPlaceForm locationID={id} handleSubmit={handleSubmit} />
+        <AddPlaceForm locationID={id} handleSubmit={handleSubmit} formRef={formRef} />
       </CustomModal>
     </>
   );

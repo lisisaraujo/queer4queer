@@ -1,11 +1,10 @@
 import dbConnect from "../../../db/connect";
 import Location from "../../../db/models/Location";
-import { accessToken } from "../../../mapbox";
 import axios from "axios";
 
 export default async function handler(req, response) {
   await dbConnect();
-  const address = req.body["address address-search"];
+  const address = req.body.address;
 
   if (req.method === "POST") {
     try {

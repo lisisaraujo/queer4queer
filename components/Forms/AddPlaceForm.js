@@ -1,16 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import { useRouter } from "next/router";
-import { AddressAutofill } from "@mapbox/search-js-react";
 import { selectFilterColorStyles, typeCategoryOptions } from "../../utils";
+import { useLoadScript, Autocomplete } from "@react-google-maps/api";
 
-export default function AddPlaceForm({ locationID, handleSubmit }) {
+const libraries = ["places"];
+
+export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
   const router = useRouter();
+  const [autocomplete, setAutocomplete] = useState(null);
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [postcode, setPostcode] = useState("");
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    libraries,
+  });
+
+  const onLoad = (autocomplete) => {
+    setAutocomplete(autocomplete);
+  };
+
+  const onPlaceChanged = () => {
+    if (autocomplete !== null) {
+      const place = autocomplete.getPlace();
+      const addressComponents = place.address_components;
+
+      console.log("Selected Place:", place);
+
+      setName(place.name);
+      setAddress(place.formatted_address);
+
+      addressComponents.forEach((component) => {
+        const types = component.types;
+        if (types.includes("locality")) {
+          setCity(component.long_name);
+        }
+        if (types.includes("postal_code")) {
+          setPostcode(component.long_name);
+        }
+      });
+    } else {
+      console.log("Autocomplete is not loaded yet!");
+    }
+  };
+
+  if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <>
-      <EntryForm onSubmit={handleSubmit} id="add-location-form">
+      <EntryForm onSubmit={handleSubmit} id="add-location-form" ref={formRef}>
         <InputWrapper>
           <input
             type="hidden"
@@ -20,29 +62,39 @@ export default function AddPlaceForm({ locationID, handleSubmit }) {
           />
           <div className="location-input-field">
             <label htmlFor="name">Name of location:</label>
-            <input id="name" name="name" />
+            <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+              <input
+                id="name"
+                name="name"
+                placeholder="Name of location"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Autocomplete>
             <div className="address-input">
               <label htmlFor="address">Address:</label>
-              <AddressAutofill accessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}>
-                <input
-                  name="address"
-                  placeholder="Address"
-                  type="text"
-                  autoComplete="address"
-                />
-                <input
-                  name="city"
-                  placeholder="City"
-                  type="text"
-                  autoComplete="address-level2"
-                />
-                <input
-                  name="postcode"
-                  placeholder="Postcode"
-                  type="text"
-                  autoComplete="postal-code"
-                />
-              </AddressAutofill>
+              <input
+                name="address"
+                placeholder="Address"
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+              <input
+                name="city"
+                placeholder="City"
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+              <input
+                name="postcode"
+                placeholder="Postcode"
+                type="text"
+                value={postcode}
+                onChange={(e) => setPostcode(e.target.value)}
+              />
             </div>
             <label htmlFor="type">What type of location is it?</label>
             <StyledSelect

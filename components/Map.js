@@ -116,7 +116,7 @@ const StyledLink = styled(Link)`
 `;
 
 const IconWrapper = styled.div`
-  background-color: rgba(91, 206, 250, 0.2);
+  background-color: rgba(91, 206, 250, 0.3);
   border-radius: 50%;
   padding: 10px;
   transition: background-color 0.3s ease;
