@@ -13,7 +13,7 @@ export default function ModalFilterHomepage({
   selectedCategory,
   loadLocations,
 }) {
-  const router = useRouter();
+
   const iconStyles = {
     color: "#F5A9B8",
     width: "24px",
@@ -60,6 +60,7 @@ export default function ModalFilterHomepage({
           <CategoryCheckboxFilter
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
+            loadLocations={loadLocations}
           />
         </ModalContent>
       </CustomModal>

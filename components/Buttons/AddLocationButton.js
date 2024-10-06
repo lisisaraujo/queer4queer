@@ -1,6 +1,5 @@
 import { IoIosAdd } from "react-icons/io";
 import styled from "styled-components";
-import Link from "next/link";
 
 export default function AddLocationButton({ openModal }) {
   const iconStyles = {
@@ -30,15 +29,15 @@ export const StyledButton = styled.button`
   width: 48px;
   height: 48px;
   flex-shrink: 0;
-  border-radius: 50%; // Changed to 50% for a perfect circle
-  background: rgba(91, 206, 250, 0.6); // Base color with opacity
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for a modern look
+  border-radius: 50%; 
+  background: rgba(91, 206, 250, 0.7); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   color: #F5A9B8; // Labels color
-  border: none; // Removed border for a cleaner look
+  border: none; 
   cursor: pointer;
-  transition: background 0.3s ease; // Smooth transition for hover effect
+  transition: background 0.3s ease;
 
   &:hover {
-     background-color: rgba(91, 206, 250, 0.8); // Streets color with opacity for hover effect
+     background-color: rgba(91, 206, 250, 0.9); 
   }
 `;

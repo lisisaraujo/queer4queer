@@ -60,7 +60,7 @@ const StyledCheckboxFilter = styled.ul`
     transition: background 0.3s ease;
 
     &:hover {
-      background:  rgba(91, 206, 250, 0.6); /* Streets color with opacity */
+      background:  rgba(91, 206, 250, 0.6);
     }
 
     input {

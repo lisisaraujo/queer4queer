@@ -28,14 +28,14 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: calc(100vh - 80px); /* Default height for larger screens */
     position: relative;
-    overflow: hidden; /* Prevent overflow */
+    overflow: auto; 
   }
 
   .add-location-button {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    z-index: 1000; /* Ensure the button is above the map */
+    z-index: 2; /* Ensure the button is above the map */
   }
 
   .mapboxgl-popup-content {

@@ -9,18 +9,18 @@ const customStyles = {
     left: "50%",
     transform: "translate(-50%, -50%)",
     padding: "0",
-    background: "rgba(28, 28, 28, 0.9)", // Base color with opacity
+    background: "rgba(28, 28, 28, 0.9)",
     border: "none",
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     width: "80%",
-    height: "90vh", // Increased height to 90% of the viewport height
+    height: "90vh",
     overflow: "auto",
-    pointerEvents: "auto" // Ensure modal content can capture touch events
+    pointerEvents: "auto"
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
-    pointerEvents: "auto" // Ensure overlay doesn't capture touch events
+    pointerEvents: "auto"
   }
 };
 
@@ -104,6 +104,7 @@ const StyledModal = styled.div`
   .modal-content {
     margin-top: 20px;
     color: #F5A9B8; /* Labels color */
+    overflow: auto;
   }
 
   .apply-cancel-btns {
@@ -131,7 +132,7 @@ const StyledModal = styled.div`
     color: #F5A9B8; /* Labels color */
 
     &:hover {
-      background: #7b1fa2; /* Darker shade for hover effect */
+      background: rgba(91, 206, 250, 0.6); /* Darker shade for hover effect */
       box-shadow: 0px 0px 10px 2px rgba(123, 31, 162, 0.75);
     }
   }

@@ -25,6 +25,7 @@ export default function MyMap() {
   console.log("locations:", locations)
   const [selectedLocation, setSelectedLocation] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [viewport, setViewport] = useState({
     height: "100%",
     width: "100%",
@@ -33,12 +34,20 @@ export default function MyMap() {
     zoom: 12,
   });
 
-  // Update filtered locations when locations or selectedCategory change
+  // Update filtered locations when locations, selectedCategory, or searchTerm change
   const filteredLocations = useMemo(() => {
     if (!locations) return [];
-    if (!selectedCategory || selectedCategory === "") return locations;
-    return locations.filter((location) => selectedCategory.includes(location.type));
-  }, [locations, selectedCategory]);
+    let filtered = locations;
+    if (selectedCategory && selectedCategory !== "") {
+      filtered = filtered.filter((location) => selectedCategory.includes(location.type));
+    }
+    if (searchTerm && searchTerm !== "") {
+      filtered = filtered.filter((location) =>
+        location.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    return filtered;
+  }, [locations, selectedCategory, searchTerm]);
 
   const onMarker = (event) => {
     const id = event.currentTarget.getAttribute("location-id");
@@ -61,6 +70,8 @@ export default function MyMap() {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
           loadLocations={mutate} // Use mutate to refresh locations
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
         />
         {filteredLocations.map((location) => (
           <div key={location._id}>
@@ -73,7 +84,7 @@ export default function MyMap() {
                 {location.name}
               </p>
               <StyledLink
-                href={`/location-page/${location._id}`}
+                href={`/location/${location._id}`}
                 location-id={location._id}
                 role="icon"
                 onClick={onMarker}

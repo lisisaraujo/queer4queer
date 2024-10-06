@@ -52,7 +52,7 @@ export const genderCategoriesArr = [
   "Other",
 ];
 
-export const selectFilterColorStyles = {
+export const dropDownSelectColorStyle = {
   control: (styles) => ({ ...styles, backgroundColor: "#1c1c1c", color: "#F5A9B8", borderColor: "#6a0dad" }),
   option: (styles, { isDisabled, isFocused, isSelected }) => {
     return {
@@ -106,19 +106,6 @@ export const bipocCategories = [
   { value: "", label: "No" },
 ];
 
-export const colorStyles = {
-  control: (styles) => ({ ...styles, backgroundColor: "#1c1c1c", color: "#F5A9B8", borderColor: "#6a0dad" }),
-  option: (styles, { isDisabled, isFocused, isSelected }) => {
-    return {
-      ...styles,
-      backgroundColor: isSelected ? "#6a0dad" : isFocused ? "rgba(91, 206, 250, 0.6)" : "#1c1c1c",
-      color: "#F5A9B8",
-      cursor: isDisabled ? "not-allowed" : "default",
-    };
-  },
-  singleValue: (styles) => ({ ...styles, color: "#F5A9B8" }),
-  placeholder: (styles) => ({ ...styles, color: "#F5A9B8" }),
-};
 
 export const iconStylesMap = {
   display: "flex",

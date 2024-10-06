@@ -106,15 +106,15 @@ export const StyledButton = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(28, 28, 28, 0.9); // Base color with opacity
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for a modern look
+  background: rgba(28, 28, 28, 0.9); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   color: #F5A9B8; // Labels color
-  border: none; // Removed border for a cleaner look
+  border: none; 
   cursor: pointer;
-  transition: background 0.3s ease; // Smooth transition for hover effect
+  transition: background 0.3s ease; 
 
   &:hover {
-    background: rgba(91, 206, 250, 0.6); // Streets color with opacity for hover effect
+    background: rgba(91, 206, 250, 0.6); 
   }
 `;
 

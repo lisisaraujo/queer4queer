@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import { useRouter } from "next/router";
-import { selectFilterColorStyles, typeCategoryOptions } from "../../utils";
+import { dropDownSelectColorStyle, typeCategoryOptions } from "../../utils";
 import { useLoadScript, Autocomplete } from "@react-google-maps/api";
 
 const libraries = ["places"];
@@ -76,6 +76,7 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
             <div className="address-input">
               <label htmlFor="address">Address:</label>
               <input
+                id="address"
                 name="address"
                 placeholder="Address"
                 type="text"
@@ -83,6 +84,7 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
                 onChange={(e) => setAddress(e.target.value)}
               />
               <input
+                id="city"
                 name="city"
                 placeholder="City"
                 type="text"
@@ -90,6 +92,7 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
                 onChange={(e) => setCity(e.target.value)}
               />
               <input
+                id="postcode"
                 name="postcode"
                 placeholder="Postcode"
                 type="text"
@@ -102,7 +105,7 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
               defaultValue={null}
               options={typeCategoryOptions}
               name="type"
-              styles={selectFilterColorStyles}
+              styles={dropDownSelectColorStyle}
             />
           </div>
         </InputWrapper>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import {
   genderCategories,
   sexualOrientationCategories,
-  colorStyles,
+  dropDownSelectColorStyle,
   ageCategories,
   bipocCategories,
 } from "../../utils";
@@ -26,15 +26,14 @@ export default function CommentForm({
       <EntryForm onSubmit={desiredApplyFunction} id="comment-form">
         <input type="hidden" name="location" value={locationID} />
         <div className="comment-card">
-          <label>
-            Share your experience!
-            <textarea
-              name="comment"
-              rows={6}
-              maxLength={200}
-              placeholder="Make it 200 characters max :)"
-            />
-          </label>
+          <label htmlFor="comment">Share your experience!</label>
+          <textarea
+            id="comment"
+            name="comment"
+            rows={6}
+            maxLength={200}
+            placeholder="Make it 200 characters max :)"
+          />
         </div>
         <label htmlFor="comment-title">A bit about you (OPTIONAL)</label>
         <div className="demographic-data">
@@ -42,18 +41,21 @@ export default function CommentForm({
             <div className="select-box">
               <label htmlFor="age">Age</label>
               <Select
+                id="age"
+                name="age"
                 closeMenuOnSelect={true}
                 defaultValue={selectedAgeOptions}
                 onChange={setSelectedAgeOptions}
                 options={ageCategories}
-                name="age"
-                styles={colorStyles}
+                styles={dropDownSelectColorStyle}
                 className="custom-select"
               />
             </div>
             <div className="select-box">
               <label htmlFor="sexual-orientation">Sexual Orientation</label>
               <Select
+                id="sexual-orientation"
+                name="sexual_orientation"
                 isMulti
                 closeMenuOnSelect={false}
                 blurInputOnSelect={false}
@@ -65,14 +67,15 @@ export default function CommentForm({
                   ])
                 }
                 options={sexualOrientationCategories}
-                name="sexual_orientation"
-                styles={colorStyles}
+                styles={dropDownSelectColorStyle}
                 className="custom-select"
               />
             </div>
             <div className="select-box">
               <label htmlFor="gender">Gender</label>
               <Select
+                id="gender"
+                name="gender"
                 isMulti
                 closeMenuOnSelect={false}
                 blurInputOnSelect={false}
@@ -81,25 +84,26 @@ export default function CommentForm({
                   setSelectedGenderOptions(selectedOptions)
                 }
                 options={genderCategories}
-                name="gender"
-                styles={colorStyles}
+                styles={dropDownSelectColorStyle}
                 className="custom-select"
               />
             </div>
             <div className="select-box">
               <label htmlFor="bipoc">BiPoc</label>
               <Select
+                id="bipoc"
+                name="bipoc"
                 closeMenuOnSelect={true}
                 defaultValue={selectedBipocOption}
                 onChange={setSelectedBipocOption}
                 options={bipocCategories}
-                name="bipoc"
-                styles={colorStyles}
+                styles={dropDownSelectColorStyle}
                 className="custom-select"
               />
             </div>
           </StyledFilter>
         </div>
+        <button type="submit" className="submit-button">Submit</button>
       </EntryForm>
     </FormContainer>
   );
@@ -131,7 +135,23 @@ const EntryForm = styled.form`
     margin-bottom: 20px;
   }
 
+  .submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(75, 0, 130, 0.7); /* Streets color with opacity */
+    box-shadow: 0px 0px 5px 3px rgba(90, 90, 90, 0.75);
+    border-radius: 10px;
+    border: none;
+    color: #F5A9B8; /* Labels color */
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 
+    &:hover {
+      box-shadow: 0px 0px 18px 2px rgba(125, 125, 125, 0.75);
+      background-color: rgba(75, 0, 130, 0.9);
+    }
+  }
 
   textarea {
     width: 100%;
