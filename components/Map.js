@@ -18,11 +18,14 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 export default function MyMap() {
   const locationNameStyle = {
     color: "#F5A9B8",
+    maxWidth: "150px", // Set a maximum width for the location name
+    wordWrap: "break-word", // Enable word wrapping
+    whiteSpace: "normal", // Allow text to wrap to the next line
   };
 
   const { data: locations, error, mutate } = useSWR('/api/locations', fetcher);
 
-  console.log("locations:", locations)
+  // console.log("locations:", locations)
   const [selectedLocation, setSelectedLocation] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -53,6 +56,7 @@ export default function MyMap() {
     const id = event.currentTarget.getAttribute("location-id");
     const location = locations.find((l) => l._id === id);
     setSelectedLocation(location);
+    console.log(selectedLocation)
   };
 
   if (error) return <div>Failed to load locations</div>;
@@ -84,7 +88,7 @@ export default function MyMap() {
                 {location.name}
               </p>
               <StyledLink
-                href={`/location/${location._id}`}
+                href={`/location-page/${location._id}`}
                 location-id={location._id}
                 role="icon"
                 onClick={onMarker}
