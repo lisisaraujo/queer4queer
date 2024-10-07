@@ -5,7 +5,6 @@ import Header from "../../components/Header";
 import styled from "styled-components";
 
 export default function Contact() {
-  const name = "About us";
   return (
     <>
       <title>Contact</title>
@@ -14,16 +13,7 @@ export default function Contact() {
       <StyledSection>
         <section className="description">
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo
-            dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-            sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam
-            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-            dolor sit amet.
+            This is a one-person project, and I welcome any constructive feedback, reports, or requests to improve the app. Please feel free to reach out at <a href="mailto:queer4queer@proton.me">queer4queer@proton.me</a>
           </p>
         </section>
       </StyledSection>
@@ -35,23 +25,34 @@ const StyledSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 20px;
-  background-color: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-  color: #F5A9B8; /* Labels color */
+  min-height: 100vh;
+  padding: 40px;
+  background-color: #1c1c1c; /* Base color */
+  color: #d3d3d3; /* Labels color */
   text-align: center;
 
   .description {
     max-width: 800px;
-    background: rgba(255, 255, 255, 0.1); /* Light background with opacity */
-    padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background: rgba(255, 255, 255, 0.05); /* Light background with opacity */
+    padding: 30px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   }
 
   p {
-    font-family: Montserrat, sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #ffffff; /* Text color */
+  }
+
+  a {
+    color: #91c8f6; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #f5a9b8; /* Hover color */
+    }
   }
 `;

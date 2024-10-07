@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  const menuList = ["About", "Contact", "Feedback", "Ressources", "Admin"];
+  const menuList = ["About", "Contact"];
   const iconStyles = {
     color: "#F5A9B8", // Labels color
     width: "24px",
