@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import { useRouter } from "next/router";
@@ -14,6 +14,7 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
@@ -29,11 +30,8 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
       const place = autocomplete.getPlace();
       const addressComponents = place.address_components;
 
-      // console.log("Selected Place:", place);
-
       setName(place.name);
       setAddress(place.formatted_address);
-      console.log(address)
 
       addressComponents.forEach((component) => {
         const types = component.types;
@@ -48,6 +46,12 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
       console.log("Autocomplete is not loaded yet!");
     }
   };
+
+  useEffect(() => {
+    if (menuIsOpen) {
+      document.getElementById("type").scrollIntoView({ behavior: "smooth" });
+    }
+  }, [menuIsOpen]);
 
   if (!isLoaded) return <div>Loading...</div>;
 
@@ -71,6 +75,7 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                tabIndex="1"
               />
             </Autocomplete>
             <div className="address-input">
@@ -82,6 +87,7 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
                 type="text"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
+                tabIndex="2"
               />
               <input
                 id="city"
@@ -90,6 +96,7 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
+                tabIndex="3"
               />
               <input
                 id="postcode"
@@ -98,14 +105,20 @@ export default function AddPlaceForm({ locationID, handleSubmit, formRef }) {
                 type="text"
                 value={postcode}
                 onChange={(e) => setPostcode(e.target.value)}
+                tabIndex="4"
               />
             </div>
             <label htmlFor="type">What type of location is it?</label>
             <StyledSelect
+              id="type"
               defaultValue={null}
               options={typeCategoryOptions}
               name="type"
               styles={dropDownSelectColorStyle}
+              tabIndex="5"
+              menuIsOpen={menuIsOpen}
+              onMenuOpen={() => setMenuIsOpen(true)}
+              onMenuClose={() => setMenuIsOpen(false)}
             />
           </div>
         </InputWrapper>
@@ -120,7 +133,7 @@ const EntryForm = styled.form`
   text-align: start;
   width: 100%;
   height: 100%;
-  color: #F5A9B8; /* Labels color */
+  color: #f5a9b8; /* Labels color */
   background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
   padding: 20px;
   border-radius: 8px;
@@ -158,7 +171,7 @@ const InputWrapper = styled.div`
   }
 
   label {
-    color: #F5A9B8; /* Labels color */
+    color: #f5a9b8; /* Labels color */
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 5px;
@@ -172,7 +185,7 @@ const InputWrapper = styled.div`
     margin-bottom: 10px;
     border: 1px solid #6a0dad; /* Streets color */
     background: rgba(28, 28, 28, 0.8); /* Base color with opacity */
-    color: #F5A9B8; /* Labels color */
+    color: #f5a9b8; /* Labels color */
   }
 
   @media (max-width: 768px) {
@@ -212,7 +225,7 @@ const StyledSelect = styled(Select)`
   .react-select__control {
     background: rgba(28, 28, 28, 0.8); /* Base color with opacity */
     border: 1px solid #6a0dad; /* Streets color */
-    color: #F5A9B8; /* Labels color */
+    color: #f5a9b8; /* Labels color */
     border-radius: 5px;
     padding: 5px;
     font-size: 1rem;
@@ -220,22 +233,22 @@ const StyledSelect = styled(Select)`
 
   .react-select__menu {
     background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-    color: #F5A9B8; /* Labels color */
+    color: #f5a9b8; /* Labels color */
   }
 
   .react-select__option {
     background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-    color: #F5A9B8; /* Labels color */
+    color: #f5a9b8; /* Labels color */
     &:hover {
       background: rgba(91, 206, 250, 0.6); /* Accent color on hover */
     }
   }
 
   .react-select__single-value {
-    color: #F5A9B8; /* Labels color */
+    color: #f5a9b8; /* Labels color */
   }
 
   .react-select__placeholder {
-    color: #F5A9B8; /* Labels color */
+    color: #f5a9b8; /* Labels color */
   }
 `;

@@ -5,8 +5,11 @@ import { IoIosClose } from "react-icons/io";
 
 const customStyles = {
   content: {
-    top: "55%",
+    top: "50%",
     left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     padding: "0",
     background: "rgba(28, 28, 28, 0.9)",
@@ -14,14 +17,19 @@ const customStyles = {
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     width: "80%",
-    height: "90vh",
+    maxWidth: "600px",
+    maxHeight: "90vh", // Set max height to 90% of the viewport height
     overflow: "auto",
-    pointerEvents: "auto"
+    pointerEvents: "auto",
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
-    pointerEvents: "auto"
-  }
+    pointerEvents: "auto",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "none",
+  },
 };
 
 Modal.setAppElement("div");
@@ -34,12 +42,24 @@ export default function CustomModal({
   applyText,
   cancelText,
   desiredApplyFunction,
-  desiredCancelFunction
+  desiredCancelFunction,
 }) {
+  const afterOpenModal = () => {
+    document.body.style.overflow = "hidden";
+  };
+
+  const afterCloseModal = () => {
+    document.body.style.overflow = "auto";
+  };
+
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={closeModal}
+      onAfterOpen={afterOpenModal}
+      onRequestClose={() => {
+        afterCloseModal();
+        closeModal();
+      }}
       style={customStyles}
       contentLabel="Modal"
     >
@@ -49,7 +69,10 @@ export default function CustomModal({
             <h1>{title}</h1>
           </div>
           <div className="close-btn">
-            <button onClick={closeModal}>
+            <button onClick={() => {
+              afterCloseModal();
+              closeModal();
+            }}>
               <IoIosClose />
             </button>
           </div>
@@ -70,6 +93,9 @@ export default function CustomModal({
 
 const StyledModal = styled.div`
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%; // Ensure the modal content doesn't exceed the modal height
 
   .header {
     width: 100%;
@@ -105,6 +131,7 @@ const StyledModal = styled.div`
     margin-top: 20px;
     color: #F5A9B8; /* Labels color */
     overflow: auto;
+    flex-grow: 1; // Allow the content to grow and take available space
   }
 
   .apply-cancel-btns {

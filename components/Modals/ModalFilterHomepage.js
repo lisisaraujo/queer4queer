@@ -60,7 +60,6 @@ export default function ModalFilterHomepage({
           <CategoryCheckboxFilter
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
-            loadLocations={loadLocations}
           />
         </ModalContent>
       </CustomModal>

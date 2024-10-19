@@ -8,7 +8,7 @@ const MyMap = dynamic(() => import("../components/Map"), {
 export default function Home() {
   return (
     <>
-      <title>Queer2Queer</title>
+      <title>Queer4Queer</title>
       <section className="map">
         <MyMap />
       </section>

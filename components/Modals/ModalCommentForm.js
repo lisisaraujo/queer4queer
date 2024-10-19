@@ -5,7 +5,8 @@ import styled from "styled-components";
 import Modal from "react-modal";
 import CustomModal from "./CustomModal";
 import CommentForm from "../Forms/CommentForm";
-import useSWR, { mutate } from "swr";
+import { mutate } from "swr";
+import { useState } from "react";
 
 Modal.setAppElement("div");
 
@@ -19,7 +20,8 @@ export default function ModalCommentForm({
   selectedAgeOptions,
   selectedGenderOptions,
   selectedBipocOption,
-  desiredApplyFunction
+  desiredApplyFunction,
+  desiredCancelFunction
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -31,7 +33,7 @@ export default function ModalCommentForm({
     cursor: "pointer",
   };
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -104,6 +106,7 @@ export default function ModalCommentForm({
         applyText="Submit"
         cancelText="Cancel"
         desiredApplyFunction={handleSubmitComment}
+        desiredCancelFunction={closeModal}
       >
         <ModalContent>
           <CommentForm

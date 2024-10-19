@@ -86,6 +86,7 @@ export default function ModalCommentFilter({
             selectedGenderOptions={selectedGenderOptions}
             selectedBipocOption={selectedBipocOption}
             desiredApplyFunction={handleApplyFilter}
+            desiredCancelFunction={closeModal}
           />
         </ModalContent>
       </CustomModal>
@@ -119,19 +120,19 @@ export const StyledButton = styled.button`
 `;
 
 const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 20px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // padding: 20px;
+  // gap: 20px;
 
-  @media (max-width: 768px) {
-    padding: 15px;
-    gap: 15px;
-  }
+  // @media (max-width: 768px) {
+  //   padding: 15px;
+  //   gap: 15px;
+  // }
 
-  @media (max-width: 480px) {
-    padding: 10px;
-    gap: 10px;
-  }
+  // @media (max-width: 480px) {
+  //   padding: 10px;
+  //   gap: 10px;
+  // }
 `;

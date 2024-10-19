@@ -6,66 +6,55 @@ export default function CategoryCheckboxFilter({
   selectedCategory,
   setSelectedCategory,
 }) {
-  const handleCheckboxChange = (event) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setSelectedCategory([...selectedCategory, value]);
+  const handleTagClick = (value) => {
+    if (value === "") {
+      setSelectedCategory("")
     } else {
-      setSelectedCategory(selectedCategory.filter((item) => item !== value));
+      if (selectedCategory.includes(value)) {
+        setSelectedCategory(selectedCategory.filter((item) => item !== value));
+      } else {
+        setSelectedCategory([...selectedCategory, value]);
+      }
     }
   };
 
   return (
     <>
-      <StyledCheckboxFilter>
+      <StyledTagFilter>
         {typeCategoryOptions.map((option) => (
-          <li key={option.value}>
-            <label>
-              <input
-                type="checkbox"
-                value={option.value}
-                checked={selectedCategory.includes(option.value)}
-                onChange={handleCheckboxChange}
-              />
-              {option.label}
-            </label>
-          </li>
+          <Tag
+            key={option.value}
+            selected={selectedCategory.includes(option.value)}
+            onClick={() => handleTagClick(option.value)}
+          >
+            {option.label}
+          </Tag>
         ))}
-      </StyledCheckboxFilter>
+      </StyledTagFilter>
     </>
   );
 }
 
-const StyledCheckboxFilter = styled.ul`
+const StyledTagFilter = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
   width: 100%;
   padding: 0;
-  list-style: none;
   margin: 0;
+`;
 
-  li {
-    margin: 10px 0;
-  }
+const Tag = styled.div`
+  background: ${(props) =>
+    props.selected ? "rgba(91, 206, 250, 0.6)" : "rgba(28, 28, 28, 0.9)"};
+  color: #f5a9b8; /* Labels color */
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  border: 1px solid #6a0dad; /* Border color */
 
-  label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
-    color: #F5A9B8; /* Labels color */
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-
-    &:hover {
-      background:  rgba(91, 206, 250, 0.6);
-    }
-
-    input {
-      margin-right: 10px;
-      accent-color: #6a0dad; /* Streets color */
-    }
+  &:hover {
+    background: rgba(91, 206, 250, 0.8);
   }
 `;

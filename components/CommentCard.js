@@ -20,7 +20,6 @@ export default function CommentCard({
   return (
     <CardFrame>
       <DemographicData>
-        {name && <Author>{`Commented by: ${name}`}</Author>}
         {age && <Tag>#{age}</Tag>}
         {filterNonEmptyValues(sexual_orientation).map((tag) => (
           <Tag key={tag}>#{tag}</Tag>

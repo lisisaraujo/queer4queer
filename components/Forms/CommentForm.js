@@ -103,7 +103,6 @@ export default function CommentForm({
             </div>
           </StyledFilter>
         </div>
-        <button type="submit" className="submit-button">Submit</button>
       </EntryForm>
     </FormContainer>
   );
@@ -180,10 +179,6 @@ const EntryForm = styled.form`
 
   @media (max-width: 768px) {
     padding: 15px;
-
-    .submit-button {
-      font-size: 1em;
-    }
 
     textarea {
       padding: 12px;

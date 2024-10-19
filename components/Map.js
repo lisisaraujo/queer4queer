@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
-import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
+import React, { useState, useMemo } from "react";
+import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import useSWR from 'swr';
 import Link from "next/link";
 import Navbar from "./Navbar";
@@ -12,20 +12,20 @@ import {
   otherIconMap,
 } from "../utils";
 import styled from "styled-components";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function MyMap() {
   const locationNameStyle = {
     color: "#F5A9B8",
-    maxWidth: "150px", // Set a maximum width for the location name
-    wordWrap: "break-word", // Enable word wrapping
-    whiteSpace: "normal", // Allow text to wrap to the next line
+    maxWidth: "150px",
+    wordWrap: "break-word",
+    whiteSpace: "normal",
   };
 
   const { data: locations, error, mutate } = useSWR('/api/locations', fetcher);
 
-  // console.log("locations:", locations)
   const [selectedLocation, setSelectedLocation] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,7 +37,6 @@ export default function MyMap() {
     zoom: 12,
   });
 
-  // Update filtered locations when locations, selectedCategory, or searchTerm change
   const filteredLocations = useMemo(() => {
     if (!locations) return [];
     let filtered = locations;
@@ -56,7 +55,6 @@ export default function MyMap() {
     const id = event.currentTarget.getAttribute("location-id");
     const location = locations.find((l) => l._id === id);
     setSelectedLocation(location);
-    console.log(selectedLocation)
   };
 
   if (error) return <div>Failed to load locations</div>;
@@ -73,7 +71,7 @@ export default function MyMap() {
         <Navbar
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
-          loadLocations={mutate} // Use mutate to refresh locations
+          loadLocations={mutate}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />
@@ -111,6 +109,7 @@ export default function MyMap() {
           trackUserLocation={true}
           position="bottom-left"
         />
+        <NavigationControl position="bottom-left" />
         <div className="add-location">
           <ModalAddLocationForm mutateLocations={mutate} />
         </div>
