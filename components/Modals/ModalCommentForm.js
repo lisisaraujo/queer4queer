@@ -20,8 +20,6 @@ export default function ModalCommentForm({
   selectedAgeOptions,
   selectedGenderOptions,
   selectedBipocOption,
-  desiredApplyFunction,
-  desiredCancelFunction
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -107,6 +105,7 @@ export default function ModalCommentForm({
         cancelText="Cancel"
         desiredApplyFunction={handleSubmitComment}
         desiredCancelFunction={closeModal}
+        shouldCloseOnOverlayClick={false}
       >
         <ModalContent>
           <CommentForm

@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     margin: 0;
     padding: 0;
+    
   }
 
   body, div#__next {
@@ -22,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Changed to flex-start to allow scrolling */
+    overflow: auto; 
   }
 
   .map-container {

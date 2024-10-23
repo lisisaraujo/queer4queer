@@ -13,8 +13,9 @@ export default function AboutUs() {
       <StyledSection>
         <section className="description">
           <p>
-            The Queer4Queer map project, born from a university research group at the Alice Salomon University Berlin, aims to understand what influences queer individuals&apos; choices in visiting specific locations. This initiative allows users to explore queer and queer-friendly spaces throughout the city, providing a platform to browse locations and share personal experiences—both positive and negative—just as one would with a friend. The focus is on helping fellow queers gain insight into the types of experiences others have had in these spaces, enabling them to make informed choices before visiting. Users can filter experiences by demographic data, offering a clearer picture of who frequents each venue and what kinds of experiences they encounter. This community-driven resource invites everyone to contribute new spaces frequented by the queer community, fostering connection and inclusivity.
-          </p>
+            The Queer4Queer map project is an exciting initiative that emerged from a university research group at Alice Salomon University in Berlin. This project is all about understanding what influences queer individuals when they choose specific locations to visit.
+            Imagine having a handy tool that lets you explore queer and queer-friendly spaces throughout the city! Users can browse various locations and share their experiences—both the highs and lows—much like chatting with a friend over coffee. The goal here is to empower fellow members of the queer community by providing insights into the types of experiences others have had in these spaces. This way, they can make informed decisions before heading out.
+            One of the standout features of this project is its ability to filter experiences based on demographic data. This helps create a clearer picture of who frequents each venue and what kinds of experiences they encounter. It’s not just about mapping locations; it’s about building a community resource where everyone can contribute new spaces that resonate with the queer community, fostering connection and inclusivity.          </p>
         </section>
       </StyledSection>
     </>

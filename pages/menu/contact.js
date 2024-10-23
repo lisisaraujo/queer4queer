@@ -13,8 +13,7 @@ export default function Contact() {
       <StyledSection>
         <section className="description">
           <p>
-            Any constructive feedback, reports, or requests to improve the app are welcome. Please feel free to reach out at <a href="mailto:queer4queer@proton.me">queer4queer@proton.me</a>
-          </p>
+            If you have any constructive feedback, reports, or requests for improving the app, we’d love to hear from you! Feel free to reach out at queer4queer@proton.me. Your input is invaluable as we continue to enhance this platform together!          </p>
         </section>
       </StyledSection>
     </>

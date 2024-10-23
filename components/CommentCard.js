@@ -68,51 +68,48 @@ const DemographicData = styled.div`
   margin-bottom: 10px;
 `;
 
-const Author = styled.p`
-  font-size: 14px;
-  margin-bottom: 5px;
-  font-weight: 600;
-`;
-
 const Tag = styled.span`
   color: var(--accent-color); /* Use accent color */
-  font-weight: 600;
+  font-weight: bold;
   padding: 4px 8px;
   font-size: 12px;
   border-radius: 12px; /* Rounded tags for a modern look */
   background-color: rgba(255, 255, 255, 0.1); /* Light background for tags */
   margin-right: 5px;
-  margin-bottom: 5px;
 `;
 
 const CommentStyle = styled.div`
-  display: flex;
-  margin-bottom: 10px;
+   display: flex;
+   flex-direction: column; /* Stack comments vertically */
+   overflow-wrap: break-word; /* Ensure long words break to the next line */
 `;
 
 const Comment = styled.p`
-  overflow-wrap: break-word;
-  margin-bottom: auto; /* Allow the comment to take available space */
-  font-size: 14px;
-  line-height: 1.5;
+   margin: auto; /* Center align text vertically */
+   font-size: 14px;
+   line-height: 1.5;
+   word-wrap: break-word; /* Break long words */
+   overflow-wrap: break-word; /* Prevent overflow */
+   max-width: calc(100% - 20px); /* Ensure it fits within padding */
 `;
 
 const Date = styled.div`
-  font-size: 12px;
-  text-align: right;
-  color: #a9a9a9;
+   font-size: 12px;
+   text-align: right;
+   color: #a9a9a9;
 `;
 
 const DeleteIcon = styled(RiDeleteBinLine)`
-  width: 20px;
-  height: auto; /* Maintain aspect ratio */
-  color: orangered;
-  align-self: flex-end;
-  cursor: pointer;
+   width: 20px;
+   height: auto; /* Maintain aspect ratio */
+   color: orangered;
 
-  &:hover {
-    color: red; /* Subtle hover effect */
-    transform: scale(1.1); /* Slightly enlarge on hover for emphasis */
-    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
-  }
+   align-self: flex-end; /* Align delete icon to the right */
+   cursor: pointer;
+
+   &:hover {
+     color: red; /* Subtle hover effect */
+     transform: scale(1.1); /* Slightly enlarge on hover for emphasis */
+     transition: color .2s ease-in-out, transform .2s ease-in-out; /* Smooth transition */
+   }
 `;

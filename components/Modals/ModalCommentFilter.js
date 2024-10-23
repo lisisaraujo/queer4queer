@@ -19,6 +19,7 @@ export default function ModalCommentFilter({
   selectedsexualOrientationOption,
   selectedBipocOption,
   setSelectedBipocOption,
+
 }) {
   const router = useRouter();
   const { id } = router.query;
