@@ -93,12 +93,13 @@ const StyledFilter = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 60vh;
+  max-height: 60vh; // Use max-height instead of height
   width: 100%;
   padding: 20px;
-  background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
+  background: rgba(28, 28, 28, 0.9);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; // Allow vertical scrolling
 
   .select-box {
     width: 100%;
@@ -108,7 +109,7 @@ const StyledFilter = styled.div`
   label {
     display: block;
     margin-bottom: 8px;
-    color: #F5A9B8; /* Labels color */
+    color: #F5A9B8;
     font-size: 1rem;
     font-weight: 600;
   }
