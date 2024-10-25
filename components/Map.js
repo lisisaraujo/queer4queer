@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import useSWR from 'swr';
 import Link from "next/link";
@@ -37,6 +37,30 @@ export default function MyMap() {
     longitude: 13.4247,
     zoom: 12,
   });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setViewport({
+          ...viewport,
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          zoom: 14, // Adjust zoom level as needed
+        });
+      },
+      (error) => {
+        console.error(error);
+        // Fallback to Berlin coordinates if location access is denied
+        setViewport({
+          ...viewport,
+          latitude: 52.5072,
+          longitude: 13.4247,
+          zoom: 12,
+        });
+      },
+      { enableHighAccuracy: true }
+    );
+  }, []);
 
   const filteredLocations = useMemo(() => {
     if (!locations) return [];
@@ -122,6 +146,8 @@ export default function MyMap() {
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
+          showUserLocation={true} // Ensure user location is shown
+          fitBoundsOptions={{ maxZoom: 15 }} // Adjust max zoom level as needed
           position="bottom-left"
         />
         <NavigationControl position="bottom-left" />
