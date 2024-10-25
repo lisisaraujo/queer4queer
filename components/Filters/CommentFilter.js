@@ -17,7 +17,7 @@ export default function CommentFilter({
   selectedBipocOption,
   setSelectedBipocOption,
 }) {
-  const [openCategory, setOpenCategory] = useState(null); // State to track open categories
+  const [openCategory, setOpenCategory] = useState(null);
 
   const handleTagClick = (value, selectedOptions, setSelectedOptions) => {
     if (selectedOptions.includes(value)) {

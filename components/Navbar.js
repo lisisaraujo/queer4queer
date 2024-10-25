@@ -19,6 +19,7 @@ export default function Navbar({
   const searchInputRef = useRef(null);
   const searchContainerRef = useRef(null);
 
+
   useEffect(() => {
     if (showSearch && searchInputRef.current) {
       searchInputRef.current.focus();

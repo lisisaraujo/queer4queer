@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { CgMathPlus } from "react-icons/cg";
 import styled from "styled-components";
@@ -6,7 +6,6 @@ import Modal from "react-modal";
 import CustomModal from "./CustomModal";
 import CommentForm from "../Forms/CommentForm";
 import { mutate } from "swr";
-import { useState } from "react";
 
 Modal.setAppElement("div");
 
@@ -32,8 +31,18 @@ export default function ModalCommentForm({
   };
 
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [guidelineIsOpen, setGuidelineIsOpen] = useState(false);
+
+  function openGuideline() {
+    setGuidelineIsOpen(true);
+  }
+
+  function closeGuideline() {
+    setGuidelineIsOpen(false);
+  }
 
   function openModal() {
+    setGuidelineIsOpen(false);
     setIsOpen(true);
   }
 
@@ -93,9 +102,30 @@ export default function ModalCommentForm({
 
   return (
     <>
-      <StyledButton onClick={openModal}>
+      <StyledButton onClick={openGuideline}>
         <CgMathPlus style={iconStyles} />
       </StyledButton>
+
+      <CustomModal
+        isOpen={guidelineIsOpen}
+        closeModal={closeGuideline}
+        title="Guidelines for Comments"
+        applyText="GOT IT"
+        cancelText="Cancel"
+        desiredApplyFunction={openModal}
+        desiredCancelFunction={closeGuideline}
+        shouldCloseOnOverlayClick={false}
+      >
+        <ModalContent>
+          <p>Please follow these guidelines when leaving a comment:</p>
+          <ul>
+            <li>Be respectful and considerate.</li>
+            <li>Avoid using offensive language.</li>
+            <li>Provide constructive feedback.</li>
+            <li>Share your genuine experiences.</li>
+          </ul>
+        </ModalContent>
+      </CustomModal>
 
       <CustomModal
         isOpen={modalIsOpen}

@@ -45,7 +45,7 @@ export default function MyMap() {
           ...viewport,
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
-          zoom: 14, // Adjust zoom level as needed
+          zoom: 14,
         });
       },
       (error) => {

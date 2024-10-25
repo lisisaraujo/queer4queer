@@ -5,6 +5,7 @@ import "/styles/map.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { SessionProvider } from "next-auth/react";
 import "../global.css";
+import Footer from "../components/Footer";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps, session }) {
           <Component {...pageProps} />
         </SWRConfig>
       </SessionProvider>
+      <Footer />
     </>
   );
 }
