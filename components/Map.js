@@ -10,6 +10,7 @@ import {
   cruisingIconMap,
   communityIconMap,
   otherIconMap,
+  artAndcultureMap,
 } from "../utils";
 import styled from "styled-components";
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -57,6 +58,17 @@ export default function MyMap() {
     setSelectedLocation(location);
   };
 
+  const handleSelectLocation = (location) => {
+    // Update viewport to center on selected location
+    setViewport({
+      ...viewport,
+      latitude: parseFloat(location.lngLat[0]),
+      longitude: parseFloat(location.lngLat[1]),
+      zoom: 14 // Adjust zoom level as needed
+    });
+    setSelectedLocation(location);
+  };
+
   if (error) return <div>Failed to load locations</div>;
   if (!locations) return <div>Loading...</div>;
 
@@ -74,6 +86,8 @@ export default function MyMap() {
           loadLocations={mutate}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
+          locations={filteredLocations} // Pass filtered locations to Navbar
+          onSelectLocation={handleSelectLocation}
         />
         {filteredLocations.map((location) => (
           <div key={location._id}>
@@ -97,6 +111,7 @@ export default function MyMap() {
                   {location.type === "Club" && clubIconMap}
                   {location.type === "Cruising" && cruisingIconMap}
                   {location.type === "Community-Center" && communityIconMap}
+                  {location.type === "Art-&-Culture" && artAndcultureMap}
                   {location.type === "Other" && otherIconMap}
                 </IconWrapper>
               </StyledLink>

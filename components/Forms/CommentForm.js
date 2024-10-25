@@ -89,7 +89,7 @@ export default function CommentForm({
               />
             </div>
             <div className="select-box">
-              <label htmlFor="bipoc">BiPoc</label>
+              <label htmlFor="bipoc">BIPOC (Black, Indigenous, People of Color) </label>
               <Select
                 id="bipoc"
                 name="bipoc"

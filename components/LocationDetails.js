@@ -46,7 +46,7 @@ export default function LocationDetails({ specificLocation }) {
 
   useEffect(() => {
     loadComments();
-  }, [comments]);
+  }, [id]);
 
   useEffect(() => {
     setFilteredComments(comments);
@@ -62,18 +62,18 @@ export default function LocationDetails({ specificLocation }) {
 
   // get filtered list of comments
   const getFilteredList = () => {
-    let filtered = [...filteredComments];
+    let filtered = [...comments];
 
     if (selectedAgeOptions.length > 0) {
       filtered = filtered.filter((comment) =>
-        selectedAgeOptions.some((option) => option.value === comment.age)
+        selectedAgeOptions.some((option) => option === comment.age)
       );
     }
 
     if (selectedGenderOptions.length > 0) {
       filtered = filtered.filter((comment) =>
         selectedGenderOptions.some((option) =>
-          comment.gender.includes(option.value)
+          comment.gender.includes(option)
         )
       );
     }
@@ -81,19 +81,15 @@ export default function LocationDetails({ specificLocation }) {
     if (selectedsexualOrientationOption.length > 0) {
       filtered = filtered.filter((comment) =>
         selectedsexualOrientationOption.some((option) =>
-          comment.sexual_orientation.includes(option.value)
+          comment.sexual_orientation.includes(option)
         )
       );
     }
 
     if (selectedBipocOption.length > 0) {
       filtered = filtered.filter((comment) =>
-        selectedBipocOption.some((option) => option.value === comment.bipoc)
+        selectedBipocOption.some((option) => option === comment.bipoc)
       );
-
-      if (selectedBipocOption === null) {
-        setSelectedBipocOption("No");
-      }
     }
 
     return filtered;

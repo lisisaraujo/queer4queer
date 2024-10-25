@@ -46,16 +46,17 @@ export const getServerSideProps = async (context) => {
 };
 
 const CardFrame = styled.div`
-  border: none;
   display: flex;
   flex-direction: column;
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 12px;
-  background-color: rgba(28, 28, 28, 0.85);
   color: #F5A9B8; /* Labels color */
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease-in-out;
+  background-color: rgba(28, 28, 28, 0.9);
+  border-radius: 30px; /* More rounded corners */
+  border-bottom: 1.5px solid rgba(91, 206, 250, 0.3); /* Softer stroke color */
+     border-right: 1.5px solid rgba(91, 206, 250, 0.3); /* Softer stroke color */
 
   &:hover {
     transform: translateY(-5px);
@@ -75,22 +76,25 @@ const Tag = styled.span`
   font-size: 12px;
   border-radius: 12px; /* Rounded tags for a modern look */
   background-color: rgba(255, 255, 255, 0.1); /* Light background for tags */
-  margin-right: 5px;
+  // margin-right: 5px;
+  margin: 5px;
 `;
 
 const CommentStyle = styled.div`
    display: flex;
-   flex-direction: column; /* Stack comments vertically */
+   flex-direction: column; 
    overflow-wrap: break-word; /* Ensure long words break to the next line */
+  text-align: left;
 `;
 
 const Comment = styled.p`
-   margin: auto; /* Center align text vertically */
+
    font-size: 14px;
    line-height: 1.5;
    word-wrap: break-word; /* Break long words */
    overflow-wrap: break-word; /* Prevent overflow */
    max-width: calc(100% - 20px); /* Ensure it fits within padding */
+  text-align: left; /* Align text to the left */
 `;
 
 const Date = styled.div`

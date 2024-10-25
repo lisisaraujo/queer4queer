@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import Select from "react-select";
 import {
   genderCategories,
   sexualOrientationCategories,
-  dropDownSelectColorStyle,
   ageCategories,
   bipocCategories,
 } from "../../utils";
@@ -18,64 +16,72 @@ export default function CommentFilter({
   selectedBipocOption,
   setSelectedBipocOption,
 }) {
+  const handleTagClick = (value, selectedOptions, setSelectedOptions) => {
+    if (selectedOptions.includes(value)) {
+      setSelectedOptions(selectedOptions.filter((item) => item !== value));
+    } else {
+      setSelectedOptions([...selectedOptions, value]);
+    }
+  };
+
   return (
     <>
       <StyledFilter>
         <div className="select-box">
           <label htmlFor="age">Age</label>
-          <Select
-            isMulti
-            closeMenuOnSelect={false}
-            blurInputOnSelect={false}
-            defaultValue={selectedAgeOptions}
-            onChange={setSelectedAgeOptions}
-            options={ageCategories}
-            name="age"
-            styles={dropDownSelectColorStyle}
-            className="custom-select"
-          />
+          <TagContainer>
+            {ageCategories.map((option) => (
+              <Tag
+                key={option.value}
+                selected={selectedAgeOptions.includes(option.value)}
+                onClick={() => handleTagClick(option.value, selectedAgeOptions, setSelectedAgeOptions)}
+              >
+                {option.label}
+              </Tag>
+            ))}
+          </TagContainer>
         </div>
         <div className="select-box">
           <label htmlFor="sexual-orientation">Sexual Orientation</label>
-          <Select
-            isMulti
-            closeMenuOnSelect={false}
-            blurInputOnSelect={false}
-            defaultValue={selectedsexualOrientationOption}
-            onChange={setSelectedsexualOrientationOption}
-            options={sexualOrientationCategories}
-            name="sexual_orientation"
-            styles={dropDownSelectColorStyle}
-            className="custom-select"
-          />
+          <TagContainer>
+            {sexualOrientationCategories.map((option) => (
+              <Tag
+                key={option.value}
+                selected={selectedsexualOrientationOption.includes(option.value)}
+                onClick={() => handleTagClick(option.value, selectedsexualOrientationOption, setSelectedsexualOrientationOption)}
+              >
+                {option.label}
+              </Tag>
+            ))}
+          </TagContainer>
         </div>
         <div className="select-box">
           <label htmlFor="gender">Gender</label>
-          <Select
-            isMulti
-            closeMenuOnSelect={false}
-            blurInputOnSelect={false}
-            defaultValue={selectedGenderOptions}
-            onChange={setSelectedGenderOptions}
-            options={genderCategories}
-            name="gender"
-            styles={dropDownSelectColorStyle}
-            className="custom-select"
-          />
+          <TagContainer>
+            {genderCategories.map((option) => (
+              <Tag
+                key={option.value}
+                selected={selectedGenderOptions.includes(option.value)}
+                onClick={() => handleTagClick(option.value, selectedGenderOptions, setSelectedGenderOptions)}
+              >
+                {option.label}
+              </Tag>
+            ))}
+          </TagContainer>
         </div>
         <div className="select-box">
-          <label htmlFor="bipoc">BiPoc</label>
-          <Select
-            isMulti
-            closeMenuOnSelect={false}
-            blurInputOnSelect={false}
-            defaultValue={selectedBipocOption}
-            onChange={setSelectedBipocOption}
-            options={bipocCategories}
-            name="bipoc"
-            styles={dropDownSelectColorStyle}
-            className="custom-select"
-          />
+          <label htmlFor="bipoc">BIPOC (Black, Indigenous, People of Color) </label>
+          <TagContainer>
+            {bipocCategories.map((option) => (
+              <Tag
+                key={option.value}
+                selected={selectedBipocOption.includes(option.value)}
+                onClick={() => handleTagClick(option.value, selectedBipocOption, setSelectedBipocOption)}
+              >
+                {option.label}
+              </Tag>
+            ))}
+          </TagContainer>
         </div>
       </StyledFilter>
     </>
@@ -107,10 +113,6 @@ const StyledFilter = styled.div`
     font-weight: 600;
   }
 
-  .custom-select {
-    width: 100%;
-  }
-
   @media (max-width: 768px) {
     padding: 10px;
 
@@ -133,5 +135,26 @@ const StyledFilter = styled.div`
     label {
       font-size: 0.8rem;
     }
+  }
+`;
+
+const TagContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+`;
+
+const Tag = styled.div`
+  background: ${(props) =>
+    props.selected ? "rgba(91, 206, 250, 0.6)" : "rgba(28, 28, 28, 0.9)"};
+  color: #f5a9b8; /* Labels color */
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  border: 1px solid #6a0dad; /* Border color */
+
+  &:hover {
+    background: rgba(91, 206, 250, 0.8);
   }
 `;

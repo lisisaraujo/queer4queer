@@ -4,6 +4,7 @@ import { IoIosPeople } from "react-icons/io";
 import { MdDirectionsBoat } from "react-icons/md";
 import { MdLocationOn } from "react-icons/md";
 import { SlLocationPin } from "react-icons/sl";
+import { FaMasksTheater } from "react-icons/fa6";
 
 export const typeCategoryOptions = [
   { label: "All", value: "" },
@@ -11,6 +12,7 @@ export const typeCategoryOptions = [
   { label: "Club", value: "Club" },
   { label: "Cruising", value: "Cruising" },
   { label: "Community-Center", value: "Community-Center" },
+  { label: "Art & Culture", value: "Art-&-Culture" },
   { label: "Other", value: "Other" },
 ];
 
@@ -57,7 +59,7 @@ export const dropDownSelectColorStyle = {
   option: (styles, { isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: isSelected ? "#6a0dad" : isFocused ? "rgba(91, 206, 250, 0.6)" : "#1c1c1c",
+      backgroundColor: isSelected ? "#4d96ef" : isFocused ? "#4d96ef" : "#1c1c1c",
       color: "#F5A9B8",
       cursor: isDisabled ? "not-allowed" : "default",
     };
@@ -126,6 +128,7 @@ export const clubIconMap = <MdNoPhotography style={iconStylesMap} />;
 export const cruisingIconMap = <MdDirectionsBoat style={iconStylesMap} />;
 export const communityIconMap = <IoIosPeople style={iconStylesMap} />;
 export const otherIconMap = <MdLocationOn style={iconStylesMap} />;
+export const artAndcultureMap = <FaMasksTheater style={iconStylesMap} />;
 export const mapIcons = <SlLocationPin style={iconStylesMap} />;
 
 export const barIconLocationCard = (
@@ -140,6 +143,11 @@ export const cruisingIconLocationCard = (
 export const communityIconLocationCard = (
   <IoIosPeople style={iconStylesLocationCard} />
 );
+
+export const artAndcultureLocationCard = (
+  <FaMasksTheater style={iconStylesLocationCard} />
+);
+
 export const otherIconLocationCard = (
   <MdLocationOn style={iconStylesLocationCard} />
 );
@@ -161,7 +169,7 @@ export const selectData = [
     name: "gender",
   },
   {
-    label: "BiPoC:",
+    label: "BIPOC (Black, Indigenous, People of Color):",
     options: bipocCategories,
     name: "bipoc",
   },
