@@ -70,7 +70,7 @@ export default function CommentFilter({
           </TagContainer>
         </div>
         <div className="select-box">
-          <label htmlFor="bipoc">BIPOC (Black, Indigenous, People of Color) </label>
+          <label htmlFor="bipoc">BIPC (Black, Indigenous, People of Color) </label>
           <TagContainer>
             {bipocCategories.map((option) => (
               <Tag

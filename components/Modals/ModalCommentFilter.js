@@ -19,7 +19,6 @@ export default function ModalCommentFilter({
   selectedsexualOrientationOption,
   selectedBipocOption,
   setSelectedBipocOption,
-
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -48,10 +47,10 @@ export default function ModalCommentFilter({
   }
 
   const removeFilters = () => {
-    setSelectedAgeOptions("");
-    setSelectedGenderOptions("");
-    setSelectedsexualOrientationOption("");
-    setSelectedBipocOption("");
+    setSelectedAgeOptions([]);
+    setSelectedGenderOptions([]);
+    setSelectedsexualOrientationOption([]);
+    setSelectedBipocOption([]);
     closeModal();
   };
 
@@ -121,19 +120,19 @@ export const StyledButton = styled.button`
 `;
 
 const ModalContent = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // padding: 20px;
-  // gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
 
-  // @media (max-width: 768px) {
-  //   padding: 15px;
-  //   gap: 15px;
-  // }
+  @media (max-width: 768px) {
+    padding: 15px;
+    gap: 15px;
+  }
 
-  // @media (max-width: 480px) {
-  //   padding: 10px;
-  //   gap: 10px;
-  // }
+  @media (max-width: 480px) {
+    padding: 10px;
+    gap: 10px;
+  }
 `;

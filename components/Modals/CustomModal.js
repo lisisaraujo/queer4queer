@@ -43,7 +43,7 @@ export default function CustomModal({
   cancelText,
   desiredApplyFunction,
   desiredCancelFunction,
-  shouldCloseOnOverlayClick = true
+  shouldCloseOnOverlayClick = true, // Default to true if not provided
 }) {
   const afterOpenModal = () => {
     document.body.style.overflow = "hidden";
@@ -63,7 +63,7 @@ export default function CustomModal({
       }}
       style={customStyles}
       contentLabel="Modal"
-      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick} // Use the prop here
     >
       <StyledModal>
         <div className="header">
