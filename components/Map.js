@@ -55,7 +55,7 @@ export default function MyMap() {
           ...viewport,
           latitude: 52.5072,
           longitude: 13.4247,
-          zoom: 12,
+          zoom: 1.5,
         });
       },
       { enableHighAccuracy: true }
