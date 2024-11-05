@@ -3,29 +3,30 @@ import GlobalStyle from "../../styles/GlobalStyle";
 import ReturnButton from "../../components/Buttons/ReturnButton";
 import Header from "../../components/Header";
 import styled from "styled-components";
+import Head from "next/head";
 
 export default function AboutUs() {
   return (
-    <>
-      <title>About</title>
+    <Layout>
+      <GlobalStyle />
+      <Head>
+        <title>About</title>
+      </Head>
       <Header>About</Header>
-
       <StyledSection>
         <section className="description">
           <p>
             The Queer4Queer map project is designed for users to explore queer and queer-friendly spaces throughout the city!
-
             Additionally, users can add and browse various locations that identify as such and share their experiences—both the highs and lows.
-
-            One of the standout features of this project is its ability to filter experiences based on demographic data ().
+            One of the standout features of this project is its ability to filter experiences based on demographic data.
             This helps create a clearer picture of the experiences people encounter and help users make more informed decisions before heading out.
-
             The comment section highlights that it's not just about mapping locations; it’s about building a community resource where everyone can contribute new spaces that resonate with the queer community, fostering connection and inclusivity.
-
-            This website originated as a research project by a group from the Master’s program in Intercultural Conflict Management at Alice Salomon University of Applied Sciences Berlin, centered on themes of gatekeeping, accessibility, queer safety, and intersectional awareness, the group aimed to create a tool to bridge gaps within the queer community.         </p>
+            This website originated as a research project by a group from the Master’s program in Intercultural Conflict Management at Alice Salomon University of Applied Sciences Berlin, centered on themes of gatekeeping, accessibility, queer safety, and intersectional awareness, the group aimed to create a tool to bridge gaps within the queer community.
+          </p>
         </section>
       </StyledSection>
-    </>
+      <ReturnButton />
+    </Layout>
   );
 }
 
