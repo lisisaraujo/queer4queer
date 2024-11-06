@@ -6,17 +6,20 @@ import styled from "styled-components";
 
 export default function Contact() {
   return (
-    <>
+    <Layout>
+      <GlobalStyle />
       <title>Contact</title>
       <Header>Contact</Header>
 
       <StyledSection>
         <section className="description">
           <p>
-            If you have any constructive feedback, reports, or requests for improving the app, we’d love to hear from you! Feel free to reach out at queer4queer@proton.me. Your input is invaluable as we continue to enhance this platform together!          </p>
+            If you have any constructive feedback, reports, or requests for improving the app, we’d love to hear from you! Feel free to reach out at <a href="mailto:queer4queer@proton.me">queer4queer@proton.me</a>. Your input is invaluable as we continue to enhance this platform together!
+          </p>
         </section>
       </StyledSection>
-    </>
+      <ReturnButton />
+    </Layout>
   );
 }
 
@@ -28,10 +31,10 @@ const StyledSection = styled.div`
   padding: 40px;
   background-color: #1c1c1c; /* Base color */
   color: #d3d3d3; /* Labels color */
-  text-align: center;
+  text-align: start;
 
   .description {
-    max-width: 800px;
+    max-width: 80vw;
     background: rgba(255, 255, 255, 0.05); /* Light background with opacity */
     padding: 30px;
     border-radius: 12px; /* Rounded corners */
@@ -42,7 +45,7 @@ const StyledSection = styled.div`
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     line-height: 1.8;
-    color: #ffffff; /* Text color */
+    color: #F5A9B8; /* Text color */
   }
 
   a {

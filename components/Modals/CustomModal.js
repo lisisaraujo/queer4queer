@@ -29,7 +29,7 @@ const customStyles = {
     alignItems: "center",
     justifyContent: "center",
     overflow: "auto",
-    zIndex: 100
+    zIndex: 3
   },
 };
 

@@ -120,7 +120,7 @@ const NavbarWrapper = styled.nav`
   padding: 0 20px;
   background: rgba(28, 28, 28, 0.9); /* Base color with opacity */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  z-index: 1000;
+  z-index: 2;
 
   .title {
     color: #F5A9B8; /* Labels color */
