@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useCallback } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import useSWR from 'swr';
 import Link from "next/link";
@@ -14,7 +14,6 @@ import {
 } from "../utils";
 import styled from "styled-components";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import debounce from 'lodash.debounce';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -46,7 +45,7 @@ export default function MyMap() {
           ...viewport,
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
-          zoom: 14, // Adjust zoom level as needed
+          zoom: 14,
         });
       },
       (error) => {
@@ -56,7 +55,7 @@ export default function MyMap() {
           ...viewport,
           latitude: 52.5072,
           longitude: 13.4247,
-          zoom: 12,
+          zoom: 1.5,
         });
       },
       { enableHighAccuracy: true }
@@ -94,11 +93,6 @@ export default function MyMap() {
     setSelectedLocation(location);
   };
 
-  const handleViewportChange = useCallback(
-    debounce((newViewport) => setViewport(newViewport), 200),
-    []
-  );
-
   if (error) return <div>Failed to load locations</div>;
   if (!locations) return <div>Loading...</div>;
 
@@ -108,7 +102,7 @@ export default function MyMap() {
         mapStyle="mapbox://styles/laraujo/cm1tplg6900i301pg7j1eg7ps"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         {...viewport}
-        onMove={(evt) => handleViewportChange(evt.viewport)}
+        onMove={(evt) => setViewport(evt.viewport)}
       >
         <Navbar
           selectedCategory={selectedCategory}

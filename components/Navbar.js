@@ -19,7 +19,6 @@ export default function Navbar({
   const searchInputRef = useRef(null);
   const searchContainerRef = useRef(null);
 
-
   useEffect(() => {
     if (showSearch && searchInputRef.current) {
       searchInputRef.current.focus();
@@ -238,6 +237,13 @@ const SearchInput = styled.input`
   &:focus {
     outline: none;
     border-color: rgba(91, 206, 250, 0.6);
+  }
+
+  /* Prevent zoom on focus for mobile devices */
+  @media (max-width: 768px) {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
   }
 `;
 
