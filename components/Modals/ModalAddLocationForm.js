@@ -50,7 +50,7 @@ export default function ModalAddLocationForm({ mutateLocations }) {
       <CustomModal
         isOpen={modalIsOpen}
         closeModal={closeModal}
-        title="Add Location"
+        title="Add New Location"
         applyText="Submit"
         cancelText="Cancel"
         desiredApplyFunction={handleSubmit}

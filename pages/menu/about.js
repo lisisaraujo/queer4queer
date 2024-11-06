@@ -16,12 +16,19 @@ export default function AboutUs() {
       <StyledSection>
         <section className="description">
           <p>
-            The Queer4Queer map project is designed for users to explore queer and queer-friendly spaces throughout the city!
+            The Queer4Queer map project is designed for users to explore queer and queer-friendly spaces worldwide!
             Additionally, users can add and browse various locations that identify as such and share their experiences—both the highs and lows.
+          </p>
+          <p>
             One of the standout features of this project is its ability to filter experiences based on demographic data.
             This helps create a clearer picture of the experiences people encounter and help users make more informed decisions before heading out.
+          </p>
+          <p>
             The comment section highlights that it&apos;s not just about mapping locations; it&apos;s about building a community resource where everyone can contribute new spaces that resonate with the queer community, fostering connection and inclusivity.
-            This website originated as a research project by a group from the Master&apos;s program in Intercultural Conflict Management at Alice Salomon University of Applied Sciences Berlin, centered on themes of gatekeeping, accessibility, queer safety, and intersectional awareness, the group aimed to create a tool to bridge gaps within the queer community.
+          </p>
+          <p>
+            This project originated from research conducted by a group in the Master&apos;s program in Intercultural Conflict Management at Alice Salomon University of Applied Sciences Berlin.
+            Focused on themes of gatekeeping, accessibility, queer safety, and intersectional awareness, the research inspired a tool designed to bridge gaps within the queer community.
           </p>
         </section>
       </StyledSection>
@@ -53,5 +60,6 @@ const StyledSection = styled.div`
     font-size: 20px;
     line-height: 1.8;
     color: #ffffff; /* Text color */
+    margin-bottom: 20px; /* Space between paragraphs */
   }
 `;

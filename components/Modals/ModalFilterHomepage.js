@@ -50,7 +50,7 @@ export default function ModalFilterHomepage({
       <CustomModal
         isOpen={modalIsOpen}
         closeModal={closeModal}
-        title="Type of location"
+        title="Filter Locations"
         applyText="Apply"
         cancelText="Remove Filters"
         desiredCancelFunction={clearCategoryFilter}

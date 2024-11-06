@@ -28,7 +28,8 @@ const customStyles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    overflow: "none",
+    overflow: "auto",
+    zIndex: 100
   },
 };
 
