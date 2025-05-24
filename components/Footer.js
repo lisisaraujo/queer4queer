@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Footer = () => {
     return (
         <FooterWrapper>
-            <p>© {new Date().getFullYear()} Lisis Araujo. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Lisis Araujo.</p>
         </FooterWrapper>
     );
 };
